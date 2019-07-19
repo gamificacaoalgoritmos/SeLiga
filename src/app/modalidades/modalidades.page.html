@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>
+      Modalidades
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="modalidade-card" routerLink="/competencias" color="">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-title> Modalidade WALLY (sem linguagem) </ion-card-title>
+      <ion-card-subtitle>Desenvolva seu raciocínio lógico e lógico-matemático através do pensamento computacional
+        sistemático com o robô Wally!</ion-card-subtitle>
+    </ion-card-header>
+
+  </ion-card>
+  <ion-card class="modalidade-card" (click)="emBreve()">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-title> Modalidade PORTUGOL</ion-card-title>
+      <ion-card-subtitle>Aprenda a pseudolinguagem portugol!</ion-card-subtitle>
+    </ion-card-header>
+
+  </ion-card>
+  <ion-card class="modalidade-card" (click)="emBreve()">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-title> Modalidade JAVA</ion-card-title>
+      <ion-card-subtitle>Aprenda uma das linguagens de programação mais famosas e mais usadas do mundo!
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink = "/home">
+  <ion-fab-button>
+    <ion-icon name="arrow-round-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
