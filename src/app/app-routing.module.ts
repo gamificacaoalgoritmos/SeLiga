@@ -9,7 +9,9 @@ const routes: Routes = [
   { path: 'modalidades', loadChildren: './modalidades/modalidades.module#ModalidadesPageModule'},
   { path: 'competencias', loadChildren: './competencias/competencias.module#CompetenciasPageModule' },
   { path: 'problemas', loadChildren: './problemas/problemas.module#ProblemasPageModule' },
-  { path: 'problema', loadChildren: './problema/problema.module#ProblemaPageModule' }
+  { path: 'problema', loadChildren: './problema/problema.module#ProblemaPageModule' },  { path: 'teoria', loadChildren: './teoria/teoria.module#TeoriaPageModule' },
+  { path: 'exemplificacao', loadChildren: './exemplificacao/exemplificacao.module#ExemplificacaoPageModule' }
+
 ];
 
 @NgModule({

@@ -3,3 +3,23 @@
     font-size: xx-small;
     text-align: center;
 }
+.buttonOne{
+    position: relative;
+    top: 10px;
+    left:50px;
+}
+.buttonTw{
+  position: absolute;
+  top: 10px;
+  left:150px;
+}
+.buttonTre{
+    position: absolute;
+    top: 10px;
+    left:250px;
+}
+.tituloQuestao{
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight:bold;
+}
