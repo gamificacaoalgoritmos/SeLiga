@@ -8,10 +8,10 @@ const routes: Routes = [
   { path: 'list', loadChildren: './list/list.module#ListPageModule' },
   { path: 'modalidades', loadChildren: './modalidades/modalidades.module#ModalidadesPageModule'},
   { path: 'competencias', loadChildren: './competencias/competencias.module#CompetenciasPageModule' },
-  { path: 'problemas', loadChildren: './problemas/problemas.module#ProblemasPageModule' },
-  { path: 'problema', loadChildren: './problema/problema.module#ProblemaPageModule' },  { path: 'teoria', loadChildren: './teoria/teoria.module#TeoriaPageModule' },
-  { path: 'exemplificacao', loadChildren: './exemplificacao/exemplificacao.module#ExemplificacaoPageModule' }
-
+  { path: 'lista-problemas', loadChildren: './lista-problemas/lista-problemas.module#ListaProblemasPageModule' },
+  { path: 'problema', loadChildren: './problema/problema.module#ProblemaPageModule' },
+  { path: 'teoria', loadChildren: './teoria/teoria.module#TeoriaPageModule' },
+  { path: 'exemplificacao', loadChildren: './exemplificacao/exemplificacao.module#ExemplificacaoPageModule' },
 ];
 
 @NgModule({
