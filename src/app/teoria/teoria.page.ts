@@ -7,12 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeoriaPage implements OnInit {
   ngOnInit() {
-   
   }
+  
   slideOpts = {
     initialSlide: 1,
     speed: 400
   };
+
   constructor() {}
 
 }

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>competencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-button [routerLink]="['/home']" >Voltar</ion-button>
+
+  <form id="form" (ngSubmit)="submitForm(dados)">
+    <ion-list>
+      <ion-item>
+        <ion-label>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.nome" name="nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Descricao</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.descricao" name="descricao"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Codigo</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.codigo" name="codigo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Imagem</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.imagem" name="imagem"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Problemas</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.problemas" name="problemas"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Teoria</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.teoria" name="teoria"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Exemplo</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.exemplo" name="exemplo"></ion-input>
+      </ion-item>
+
+    </ion-list>
+    <ion-button type="submit">Enviar</ion-button>
+  </form>
+</ion-content>

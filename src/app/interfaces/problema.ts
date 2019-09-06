@@ -1,0 +1,15 @@
+export interface Problema {
+    codigo: string,
+    titulo: string,
+    enunciado: string,
+    dica: string,
+    imagemCodigo: string,
+    imagem: string,
+    pontuacao: number,
+    dificuldade: number,
+    alternativaA: string,
+    alternativaB: string,
+    alternativaC: string,
+    alternativaD: string,
+    alternativaCorreta: string,
+}

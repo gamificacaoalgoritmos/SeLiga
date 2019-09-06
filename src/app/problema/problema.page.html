@@ -1,36 +1,34 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-        <ion-button size="small" routerLink="/list" fill="clean">    
-          <ion-icon name="arrow-back"></ion-icon>
+  <ion-toolbar  class="barraSuperior">     
+     <ion-buttons slot="secondary">
+       <ion-button routerLink = "/lista-problemas">
+        <ion-icon slot="icon-only" name="trophy"></ion-icon>
         </ion-button>
-      Problema
-      </ion-title>
-  </ion-toolbar>
+      </ion-buttons>
+     
+  <ion-title>
+    Título da Questão
+    </ion-title>
+</ion-toolbar>
 </ion-header>
-
 <ion-content>
 
     <ion-fab-button class = "buttonOne" color="warning"><ion-icon name="color-wand"></ion-icon></ion-fab-button>
     <ion-fab-button class = "buttonTw"color="warning"><ion-icon name="bulb"></ion-icon></ion-fab-button>
     <ion-fab-button class = "buttonTre" color="warning"> <ion-icon name="alert"></ion-icon> </ion-fab-button>
-
-    <ion-card>
-        <ion-card-header>
-          <ion-card-title class= "tituloQuestao">Primeiros Passos!</ion-card-title>
-          <ion-card-subtitle >O robô Wally precisa sair de onde está e chegar até o piso destacado em verde. Um programador já escreveu um pedaço das instruções que Wally deverá seguir, mas não conseguiu terminar. Qual sequência de códigos completará o código do programador e fará com que Wally consiga chegar até o piso verde?</ion-card-subtitle>
+         <!-- <br>
+          descrição
+          <br>-->
           <br>
           <app-slides-problema> </app-slides-problema>
           <br>
-        </ion-card-header>
-    </ion-card>
 
 <ion-card>
 <div>
-<ion-button color= "dark" expand="full"> 1. andarFrente()   2. virarDireita() </ion-button>
-<ion-button color= "dark" expand="full">1. andarFrente()   2. virarEsquerda()</ion-button>
-<ion-button color= "dark" expand="full">1. andarFrente()   2. andarFrente()</ion-button>
-<ion-button color= "dark" expand="full">1. virarDireita()   2.andarFrente()</ion-button>
+<ion-button color="warning" expand="full"> 1. andarFrente()   2. virarDireita() </ion-button>
+<ion-button color="warning" expand="full">1. andarFrente()   2. virarEsquerda()</ion-button>
+<ion-button color="warning" expand="full">1. andarFrente()   2. andarFrente()</ion-button>
+<ion-button color="warning" expand="full">1. virarDireita()   2.andarFrente()</ion-button>
 </div>
 </ion-card>
 

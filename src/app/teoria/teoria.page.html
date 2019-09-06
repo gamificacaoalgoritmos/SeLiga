@@ -1,13 +1,26 @@
-
+<ion-header>
+  <ion-toolbar  class="barraSuperior">     
+       <ion-buttons slot="secondary">
+        <ion-button routerLink = "/lista-problemas">
+          <ion-icon slot="icon-only" name="checkmark-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  <ion-title>
+     Teorização
+    </ion-title>
+</ion-toolbar>
+</ion-header>
 <ion-content>
   <ion-slides pager="true" [options]="slideOpts">
     <ion-slide>
-      <ion-img class="img" src="/assets/SeLiga/Teoria/1.png"></ion-img>
+      <ion-img class="img" src="/assets/teorias/C001/T1001.png"></ion-img>
     </ion-slide>
     <ion-slide>
-      <ion-img class="img"src="/assets/SeLiga/Teoria/2.png"></ion-img>
+      <ion-img class="img" src="/assets/teorias/C001/T1002.png"></ion-img>
+    </ion-slide>
+    <ion-slide>
+      <ion-img class="img" src="/assets/teorias/C001/T1003.png"></ion-img>
+      
     </ion-slide>
   </ion-slides>
-  
-
 </ion-content>

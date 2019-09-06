@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>problema</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button [routerLink]="['/home']" >Voltar</ion-button>
+
+  <form (ngSubmit)="submitForm(dados)">
+    <ion-list>
+      <ion-item>
+        <ion-label>Codigo</ion-label>
+        <ion-input type="text" aria-required="" [(ngModel)]="dados.codigo" name="codigo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Titulo</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.titulo" name="titulo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Enunciado</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.enunciado" name="enunciado"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Dica</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.dica" name="dica"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Imagem do codigo</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.imagemCodigo" name="imagemCodigo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Imagem</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.imagem" name="imagem"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Pontuacão</ion-label>
+        <ion-input type="number" [(ngModel)]="dados.pontuacao" name="pontuacao"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Dificuldade</ion-label>
+        <ion-input type="number" [(ngModel)]="dados.dificuldade" name="dificuldade"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>AlternativaA</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.alternativaA" name="alternativaA"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>AlternativaB</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.alternativaB" name="alternativaB"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>AlternativaC</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.alternativaC" name="alternativaC"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>AlternativaD</ion-label>
+        <ion-input type="text" [(ngModel)]="dados.alternativaD" name="alternativaD"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>AlternativaCorreta</ion-label>
+        <ion-select [(ngModel)]="dados.alternativaCorreta" name="alternativaCorreta">
+          <ion-select-option>a</ion-select-option>
+          <ion-select-option>b</ion-select-option>
+          <ion-select-option>c</ion-select-option>
+          <ion-select-option>d</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit">Enviar</ion-button>
+  </form>
+</ion-content>

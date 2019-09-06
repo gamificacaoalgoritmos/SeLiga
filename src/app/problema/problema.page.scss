@@ -6,20 +6,25 @@
 .buttonOne{
     position: relative;
     top: 10px;
-    left:50px;
+    left:60px;
 }
 .buttonTw{
   position: absolute;
   top: 10px;
-  left:150px;
+  left:170px;
 }
 .buttonTre{
     position: absolute;
     top: 10px;
-    left:250px;
+    left:280px;
 }
 .tituloQuestao{
     font-family:Arial, Helvetica, sans-serif;
     text-align: center;
     font-weight:bold;
 }
+.barraSuperior{
+    font: italic small-caps normal 18px/1.3em Arial, sans-serif;
+    --background:#ff6d05;
+}
+

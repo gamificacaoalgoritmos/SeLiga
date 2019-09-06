@@ -1,0 +1,85 @@
+<ion-content>
+  <ion-toolbar class="barraSuperior">
+      <ion-buttons slot="secondary">
+        <ion-button routerLink = "/teoria">
+          <ion-icon slot="icon-only" name="bookmarks"></ion-icon>
+        </ion-button>
+        <ion-button routerLink = "/exemplificacao">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Noções Espaciais</ion-title>
+    </ion-toolbar>
+  <ion-list>
+      <ion-item>
+        <ion-fab-button size="small" routerLink = "/problema" color="dark">
+          <ion-icon name="play"></ion-icon>
+        </ion-fab-button>
+          <ion-label>
+              Primeiros Passos!
+          </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-fab-button size="small" routerLink = "/problema" color="dark">
+              <ion-icon name="play"></ion-icon>
+            </ion-fab-button>
+          <ion-label>
+              Poupando Tempo
+          </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-fab-button size="small" routerLink = "/problema" color="dark">
+              <ion-icon name="play"></ion-icon>
+            </ion-fab-button>
+            <ion-label>
+                Desviando de Paredes
+            </ion-label>
+          </ion-item>
+          <ion-item>
+              <ion-fab-button size="small" routerLink = "/problema" color="dark">
+                <ion-icon name="play"></ion-icon>
+              </ion-fab-button>
+              <ion-label>
+                  Mudando Objetos de Lugar
+              </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-fab-button size="small" routerLink = "/problema" color="dark">
+                  <ion-icon name="play"></ion-icon>
+                </ion-fab-button>
+                <ion-label>
+                    Pintando Pisos
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                  <ion-fab-button size="small" routerLink = "/problema" color="dark">
+                    <ion-icon name="play"></ion-icon>
+                  </ion-fab-button>
+                  <ion-label>
+                      Ciranda
+                  </ion-label>
+                </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink = "/home">
+      <ion-fab-button>
+        <ion-icon name="home"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  
+   <!-- Exemplo de reprodução de itens na lista   
+<ion-list>
+  <ion-item *ngFor="let item of items">
+    <ion-icon [name]="item.icon" slot="start"></ion-icon>
+    {{item.title}}
+    <div class="item-note" slot="end">
+      {{item.note}}
+    </div>
+  </ion-item>
+</ion-list>
+ -->
+<!--
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title }}</b>
+  </div>
+-->
+</ion-content>
