@@ -1,10 +1,11 @@
 <ion-header>
-  <ion-toolbar color = "secondary">
-      <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-    <ion-title>
-        Competências da Modalidade</ion-title>
+  <ion-toolbar class="barraSuperior">
+    <ion-buttons slot="secondary">
+      <ion-button routerLink = "/modalidades">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Noções Espaciais</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,19 +16,14 @@
       </ion-card-header>
   </ion-card>
 -->
-  <ion-img src="/assets/competencias/C001.png" routerLink="/lista-problemas"></ion-img>
-  <ion-img src="/assets/competencias/C002.png" routerLink="/competencias"></ion-img>
-  <ion-img src="/assets/competencias/C003.png" routerLink="/competencias"></ion-img>
-  <ion-img src="/assets/competencias/C004.png" routerLink="/competencias"></ion-img>
-  <ion-img src="/assets/competencias/C005.png" routerLink="/competencias"></ion-img>
-  <ion-img src="/assets/competencias/C006.png" routerLink="/competencias"></ion-img>
-  <ion-img src="/assets/competencias/C007.png" routerLink="/competencias"></ion-img>
-  <ion-img src="/assets/competencias/C008.png" routerLink="/competencias"></ion-img>
-  <ion-img src="/assets/competencias/C009.png" routerLink="/competencias"></ion-img>
+  <ion-img class = "imgBorda" src="/assets/competencias/C001.png" routerLink="/lista-problemas"></ion-img>
+  <ion-img class = "imgBorda" src="/assets/competencias/C002.png" routerLink="/competencias"></ion-img>
+  <ion-img class = "imgBorda" src="/assets/competencias/C003.png" routerLink="/competencias"></ion-img>
+  <ion-img class = "imgBorda" src="/assets/competencias/C004.png" routerLink="/competencias"></ion-img>
+  <ion-img class = "imgBorda" src="/assets/competencias/C005.png" routerLink="/competencias"></ion-img>
+  <ion-img class = "imgBorda" src="/assets/competencias/C006.png" routerLink="/competencias"></ion-img>
+  <ion-img class = "imgBorda" src="/assets/competencias/C007.png" routerLink="/competencias"></ion-img>
+  <ion-img class = "imgBorda" src="/assets/competencias/C008.png" routerLink="/competencias"></ion-img>
+  <ion-img class = "imgBorda" src="/assets/competencias/C009.png" routerLink="/competencias"></ion-img>
 </ion-content>
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink = "/home">
-  <ion-fab-button>
-    <ion-icon name="arrow-round-back"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
