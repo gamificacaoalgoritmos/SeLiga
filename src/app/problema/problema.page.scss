@@ -11,12 +11,12 @@
 .buttonTw{
   position: absolute;
   top: 10px;
-  left:170px;
+  left:130px;
 }
 .buttonTre{
     position: absolute;
     top: 10px;
-    left:280px;
+    left:200px;
 }
 .tituloQuestao{
     font-family:Arial, Helvetica, sans-serif;
@@ -26,5 +26,15 @@
 .barraSuperior{
     font: italic small-caps normal 18px/1.3em Arial, sans-serif;
     --background:#ff6d05;
+}
+.buttonBorda{
+    border:1px inset #000000;
+    font: small-caps normal 12px/1.3em Arial, sans-serif;
+}
+ion-card-subtitle{
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight:bold;
+    color: #000000;
 }
 
