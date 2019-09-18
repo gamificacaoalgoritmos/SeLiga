@@ -6,8 +6,8 @@
         </ion-button>
       </ion-buttons>
      
-  <ion-title>
-    Primeiros Passos!
+  <ion-title id="titulo">
+    
     </ion-title>
 </ion-toolbar>
 </ion-header>
@@ -25,9 +25,32 @@
   </ion-buttons>
   <ion-card>
       <ion-card-subtitle>
-          O robô Wally precisa sair de onde está e chegar até o piso destacado em verde. Um programador já escreveu um pedaço das instruções que Wally deverá seguir, mas não conseguiu terminar. Qual sequência de códigos completará o código do programador e fará com que Wally consiga chegar até o piso verde?
+          <span id="enunciado"> </span>
       </ion-card-subtitle>
-      <app-slides-problema> </app-slides-problema>
+      <!-- <app-slides-problema> </app-slides-problema> -->
+      <ion-slides pager="true" [options]="slideOpts">
+
+        <ion-slide>
+          <ion-card>
+              <ion-card-content>
+                <div>
+                    <img id="contexto" src="">  
+                </div>
+              </ion-card-content>
+          </ion-card>
+        </ion-slide>
+    
+        <ion-slide>
+            <ion-card >
+                <ion-card-content>
+                  <div>
+                      <img id="programador" src="">
+                  </div>
+                </ion-card-content>
+            </ion-card>
+        </ion-slide>
+    
+      </ion-slides>
   </ion-card>
 
     <!--<ion-fab-button class = "buttonOne" color="warning"><ion-icon name="color-wand"></ion-icon></ion-fab-button>
@@ -40,10 +63,10 @@
 
 <ion-card>
 <div>
-<ion-button color="light" class= "buttonBorda" expand="full"> 1. andarFrente()   2. virarDireita() </ion-button>
-<ion-button color="light" class= "buttonBorda" expand="full">1. andarFrente()   2. virarEsquerda()</ion-button>
-<ion-button color="light" class= "buttonBorda" expand="full">1. andarFrente()   2. andarFrente()</ion-button>
-<ion-button color="light" class= "buttonBorda" expand="full">1. virarDireita()   2.andarFrente()</ion-button>
+<ion-button color="light" class= "buttonBorda" expand="full"><span id="a"></span></ion-button>
+<ion-button color="light" class= "buttonBorda" expand="full"><span id="b"></span></ion-button>
+<ion-button color="light" class= "buttonBorda" expand="full"><span id="c"></span></ion-button>
+<ion-button color="light" class= "buttonBorda" expand="full"><span id="d"></span></ion-button>
 </div>
 </ion-card>
 
