@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'modalidades', loadChildren: './modalidades/modalidades.module#ModalidadesPageModule'},
   { path: 'competencias', loadChildren: './competencias/competencias.module#CompetenciasPageModule' },
   { path: 'lista-problemas', loadChildren: './lista-problemas/lista-problemas.module#ListaProblemasPageModule' },
-  { path: 'problema', loadChildren: './problema/problema.module#ProblemaPageModule' },
+  { path: 'problema/:id', loadChildren: './problema/problema.module#ProblemaPageModule' },
   { path: 'teoria', loadChildren: './teoria/teoria.module#TeoriaPageModule' },
   { path: 'exemplificacao', loadChildren: './exemplificacao/exemplificacao.module#ExemplificacaoPageModule' },
   { path: 'problemas', loadChildren: './pages/problemas/problemas.module#ProblemasPageModule' },
