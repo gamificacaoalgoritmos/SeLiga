@@ -1,4 +1,3 @@
-import { SlidesProblemaComponent } from './../slides-problema/slides-problema.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +22,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
 
-  declarations: [SlidesProblemaComponent, ProblemaPage]
+  declarations: [ProblemaPage]
 })
 export class ProblemaPageModule {}

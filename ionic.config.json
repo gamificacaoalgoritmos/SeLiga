@@ -1,5 +1,7 @@
 {
   "name": "Se Liga!",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -8,7 +8,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SlidesProblemaComponent } from './slides-problema/slides-problema.component';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire'
