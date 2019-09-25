@@ -1,83 +1,78 @@
 <ion-header>
-  <ion-toolbar  class="barraSuperior">     
-     <ion-buttons slot="secondary">
-       <ion-button routerLink = "/lista-problemas">
-        <ion-icon slot="icon-only" name="trophy"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-     
-  <ion-title id="titulo">
-    
-    </ion-title>
-</ion-toolbar>
-</ion-header>
-<ion-content>
+  <ion-toolbar class="barraSuperior">
     <ion-buttons slot="secondary">
+      <ion-button routerLink="/lista-problemas">
+        <ion-icon slot="icon-only" name="trophy"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title id="titulo"> </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-buttons slot="secondary">
     <ion-button color="light">
-        <ion-icon name="bulb"></ion-icon>
+      <ion-icon name="bulb"></ion-icon>
     </ion-button>
     <ion-button color="light">
-        <ion-icon name="trash"></ion-icon>
+      <ion-icon name="trash"></ion-icon>
     </ion-button>
     <ion-button color="light">
-        <ion-icon name="bug"></ion-icon>
+      <ion-icon name="bug"></ion-icon>
     </ion-button>
   </ion-buttons>
+
   <ion-card>
-      <ion-card-subtitle>
-          <span id="enunciado"> </span>
-      </ion-card-subtitle>
-      <!-- <app-slides-problema> </app-slides-problema> -->
-      <ion-slides pager="true" [options]="slideOpts">
+    <ion-card-subtitle>
+      <span id="enunciado"> </span>
+    </ion-card-subtitle>
 
-        <ion-slide>
-          <ion-card>
-              <ion-card-content>
-                <div>
-                    <img id="contexto" src="">  
-                </div>
-              </ion-card-content>
-          </ion-card>
-        </ion-slide>
-    
-        <ion-slide>
-            <ion-card >
-                <ion-card-content>
-                  <div>
-                      <img id="programador" src="">
-                  </div>
-                </ion-card-content>
-            </ion-card>
-        </ion-slide>
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            <div>
+              <img id="contexto" src="">
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
 
-        
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            <div>
+              <img id="programador" src="">
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+    </ion-slides>
     
-      </ion-slides>
   </ion-card>
 
-    <!--<ion-fab-button class = "buttonOne" color="warning"><ion-icon name="color-wand"></ion-icon></ion-fab-button>
+  <!--<ion-fab-button class = "buttonOne" color="warning"><ion-icon name="color-wand"></ion-icon></ion-fab-button>
     <ion-fab-button class = "buttonTw"color="warning"><ion-icon name="bulb"></ion-icon></ion-fab-button>
     <ion-fab-button class = "buttonTre" color="warning"> <ion-icon name="alert"></ion-icon> </ion-fab-button>
-    -->  
-          <!-- <br>
+    -->
+  <!-- <br>
           descrição
           <br>-->
 
-<ion-card>
-<div>
-<ion-button color="light" class= "buttonBorda" expand="full"><span id="a"></span></ion-button>
-<ion-button color="light" class= "buttonBorda" expand="full"><span id="b"></span></ion-button>
-<ion-button color="light" class= "buttonBorda" expand="full"><span id="c"></span></ion-button>
-<ion-button color="light" class= "buttonBorda" expand="full"><span id="d"></span></ion-button>
-</div>
-</ion-card>
-
-<footer>
   <ion-card>
-    <p class="rodape">© 2019 Se Liga Aê! Todos os direitos reservados. 
-      <br> Gamificação para o ensino de Algoritmos - IFPE Campus Garanhuns</p>
+    <div>
+      <ion-button color="light" class="buttonBorda" expand="full"><span id="a"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="full"><span id="b"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="full"><span id="c"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="full"><span id="d"></span></ion-button>
+    </div>
   </ion-card>
+
+  <footer>
+      <p class="rodape">© 2019 Se Liga Aê! Todos os direitos reservados.
+        <br> Gamificação para o ensino de Algoritmos - IFPE Campus Garanhuns</p>
   </footer>
 
 </ion-content>
-
