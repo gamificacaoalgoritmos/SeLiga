@@ -46,7 +46,6 @@ export class ProblemaPage implements OnInit {
 
   }
 
-
   
   //Configurações do slide de imagens (contexto e código do programador)
   slideOpts = {

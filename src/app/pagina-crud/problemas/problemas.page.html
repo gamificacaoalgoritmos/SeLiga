@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>problema</ion-title>
+    <ion-title>Adicionar Problema</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button [routerLink]="['/home']" >Voltar</ion-button>
+  <ion-button [routerLink]="['/pagina-crud']" expand="full">Voltar</ion-button>
 
   <form (ngSubmit)="submitForm(dados)">
     <ion-list>
@@ -79,6 +79,6 @@
         </ion-select>
       </ion-item>
     </ion-list>
-    <ion-button type="submit">Enviar</ion-button>
+    <ion-button type="submit" expand="full">Enviar</ion-button>
   </form>
 </ion-content>

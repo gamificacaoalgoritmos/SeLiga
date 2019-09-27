@@ -5,3 +5,4 @@ export interface Usuario {
     senha: string,
     pontuacao: number
 }
+
