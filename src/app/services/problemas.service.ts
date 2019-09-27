@@ -30,11 +30,6 @@ export class ProblemaService {
     ))
   }
 
-  // addProblema(problema: Problema) {
-  //   this.db.collection('problemas').doc(problema.codigo).set(problema);
-    
-  // }
-
   addProblema(problema: Problema) {
     firebase.database().ref('problemas/' + problema.codigo).set(problema);
   }

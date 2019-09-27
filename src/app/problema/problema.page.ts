@@ -30,7 +30,6 @@ export class ProblemaPage implements OnInit {
   }
 
   mudarHtml(data) {
-    console.log(data)
     document.getElementById('titulo').innerHTML = data['titulo']
     document.getElementById('enunciado').innerHTML = data['enunciado']
 

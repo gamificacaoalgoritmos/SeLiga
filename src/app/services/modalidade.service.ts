@@ -29,24 +29,12 @@ export class ModalidadeService {
   }
 
   addModalidade(modalidade: Modalidade) {
-    this.db.collection('modalidades').doc(modalidade.codigo).set(modalidade);
+    firebase.database().ref('modalidades/' + modalidade.codigo).set(modalidade);
   }
 
-  async getModalidade(codigo: string) {
-    let modalidadeRef = this.afs.collection('modalidades').doc(codigo);
-    let modalidade = await modalidadeRef.get()
-      .then(doc => {
-        if (!doc.exists) {
-          console.log('Nenhum documento encontrado');
-        } else {
-          return doc.data()
-        }
-      })
-      .catch(err => {
-        console.log('Erro desconhecido', err);
-      });
-    
-    let retorno = await modalidade
-    return retorno
+  getModalidade(codigo: string) {
+    return firebase.database().ref('/modalidades/' + codigo).once('value').then(function(snapshot) {
+    return snapshot.val()
+    });
   }
 }
