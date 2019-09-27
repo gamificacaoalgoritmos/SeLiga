@@ -28,24 +28,12 @@ export class CompetenciaService {
   }
 
   addCompetencia(competencia: Competencia) {
-    this.db.collection('competencias').doc(competencia.codigo).set(competencia);
+    firebase.database().ref('competencias/' + competencia.codigo).set(competencia);
   }
 
-  async getCompetencia(codigo: string) {
-    let competenciaRef = this.afs.collection('competencias').doc(codigo);
-    let competencia = await competenciaRef.get()
-      .then(doc => {
-        if (!doc.exists) {
-          console.log('Nenhum documento encontrado');
-        } else {
-          return doc.data()
-        }
-      })
-      .catch(err => {
-        console.log('Erro desconhecido', err);
-      });
-    
-    let retorno = await competencia
-    return retorno
+  getCompetencia(codigo: string) {
+    return firebase.database().ref('/competencias/' + codigo).once('value').then(function(snapshot) {
+    return snapshot.val()
+    });
   }
 }

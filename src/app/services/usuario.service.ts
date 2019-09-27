@@ -28,24 +28,12 @@ export class UsuarioService {
   }
 
   addUsuario(usuario: Usuario) {
-    this.db.collection('usuarios').doc(usuario.codigo).set(usuario);
+    firebase.database().ref('usuarios/' + usuario.codigo).set(usuario);
   }
 
-  async getUsuario(codigo: string) {
-    let usuarioRef = this.afs.collection('usuarios').doc(codigo);
-    let usuario = await usuarioRef.get()
-      .then(doc => {
-        if (!doc.exists) {
-          console.log('Nenhum documento encontrado');
-        } else {
-          return doc.data()
-        }
-      })
-      .catch(err => {
-        console.log('Erro desconhecido', err);
-      });
-    
-    let retorno = await usuario
-    return retorno
+  getUsuario(codigo: string) {
+    return firebase.database().ref('/usuarios/' + codigo).once('value').then(function(snapshot) {
+    return snapshot.val()
+    });
   }
 }
