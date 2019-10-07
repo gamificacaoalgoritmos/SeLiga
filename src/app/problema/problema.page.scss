@@ -28,17 +28,15 @@
     font: italic small-caps normal 18px/1.3em Arial, sans-serif;
     --background:#ff6d05;
 }
-
-.button{
+.buttonBorda{
     border:1px inset #000000;
-    font: small normal 12px/1.3em Arial, sans-serif;
-    text-transform: lowercase;
+    font: small-caps normal 12px/1.3em Arial, sans-serif;
 }
 
-ion-card-content{
+ion-card-subtitle{
+    font-family:Arial, Helvetica, sans-serif;
     text-align: center;
-    color: #857d7d;
-    font-weight: normal;
-    font-family: Helvetica;
+    font-weight:bold;
+    color: #000000;
 }
 

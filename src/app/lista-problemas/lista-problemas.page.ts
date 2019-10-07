@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import * as firebase from 'firebase';
+import { ActivatedRoute } from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { CompetenciaService } from '../services/competencia.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-lista-problemas',
@@ -6,10 +11,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-problemas.page.scss'],
 })
 export class ListaProblemasPage implements OnInit {
+  public id
+  public competencia
+  public problemas: Observable<any>[] = []
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private competenciaService: CompetenciaService) { 
+    this.id = this.route.snapshot.params['comp'] 
+    let contexto = this
 
-  ngOnInit() {
+    let competencia = firebase.database().ref('/competencias/' + this.id).once('value').then(function(snapshot) {
+      contexto.listarProblemas(snapshot.val())
+    });
   }
 
+  ngOnInit() {
+    
+  }
+
+  listarProblemas(competencia) {
+    let arrayProblemas = competencia['problemas'].split(", ")
+    var contexto = this
+    for(var i = 0; i < arrayProblemas.length; i++) {
+      var fb = firebase.database().ref('/problemas/' + arrayProblemas[i]).once('value').then(function(snapshot) {
+        contexto.problemas.push(snapshot.val())
+      });
+    }
+    
+  }
 }
