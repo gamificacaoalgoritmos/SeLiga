@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar class="barraSuperior">
     <ion-buttons slot="secondary">
-      <ion-button routerLink="/lista-problemas">
+      <ion-button routerLink="/lista-problemas/">
         <ion-icon slot="icon-only" name="trophy"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -25,14 +25,10 @@
   </ion-buttons>
 
   <ion-card>
-    <ion-card-content>
-      <div>
+    <ion-card-subtitle>
       <span id="enunciado"> </span>
-    </div>
-    </ion-card-content>
-  </ion-card>
+    </ion-card-subtitle>
 
-  <ion-card>
     <ion-slides pager="true" [options]="slideOpts">
       <ion-slide>
         <ion-card>
@@ -67,11 +63,11 @@
           <br>-->
 
   <ion-card>
-    <div class="">
-      <ion-button color="light" class="button" expand="full"><span id="a"></span></ion-button>
-      <ion-button color="light" class="button" expand="full"><span id="b"></span></ion-button>
-      <ion-button color="light" class="button" expand="full"><span id="c"></span></ion-button>
-      <ion-button color="light" class="button" expand="full"><span id="d"></span></ion-button>
+    <div>
+      <ion-button color="light" class="buttonBorda" expand="full"><span id="a"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="full"><span id="b"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="full"><span id="c"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="full"><span id="d"></span></ion-button>
     </div>
   </ion-card>
 

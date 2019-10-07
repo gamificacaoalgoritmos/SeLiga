@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'modalidades', loadChildren: './modalidades/modalidades.module#ModalidadesPageModule'},
   { path: 'competencias', loadChildren: './competencias/competencias.module#CompetenciasPageModule' },
+  { path: 'lista-problemas/:comp', loadChildren: './lista-problemas/lista-problemas.module#ListaProblemasPageModule' },
   { path: 'lista-problemas', loadChildren: './lista-problemas/lista-problemas.module#ListaProblemasPageModule' },
   { path: 'problema/:id', loadChildren: './problema/problema.module#ProblemaPageModule' },
   { path: 'teoria', loadChildren: './teoria/teoria.module#TeoriaPageModule' },
