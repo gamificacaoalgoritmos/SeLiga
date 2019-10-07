@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProblemaService } from '../services/problemas.service';
 import * as firebase from 'firebase';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class ProblemaPage implements OnInit {
   private problema;
   private afs = firebase.firestore()
 
-  constructor(private route: ActivatedRoute, private problemaService: ProblemaService) { }
+  constructor(private route: ActivatedRoute, private problemaService: ProblemaService) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id']
