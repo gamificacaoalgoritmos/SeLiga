@@ -1,15 +1,23 @@
 <ion-header>
-  <ion-toolbar  class="barraSuperior">     
-       <ion-buttons slot="secondary">
-        <ion-button routerLink = "/lista-problemas">
-          <ion-icon slot="icon-only" name="checkmark-circle"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-  <ion-title>
-     Exemplificação
+  <ion-toolbar class="barraSuperior">
+    <ion-buttons slot="secondary">
+      <ion-button routerLink="/lista-problemas">
+        <ion-icon slot="icon-only" name="checkmark-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Exemplificação
     </ion-title>
-</ion-toolbar>
+  </ion-toolbar>
 </ion-header>
 <ion-content>
-      <ion-img class="img" src="/assets/exemplificacao/C001.png"></ion-img>     
+
+  <ion-slides pager="true" [options]="slideOpts" zoom>
+    <ion-slide>
+      <div class="swiper-zoom-container">
+        <img class="img" src="/assets/exemplificacao/C001.png">
+      </div>
+    </ion-slide>
+  </ion-slides>
+
 </ion-content>
