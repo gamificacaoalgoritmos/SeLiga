@@ -11,5 +11,6 @@ export class ExemplificacaoPage implements OnInit {
 
   ngOnInit() {
   }
+  
 
 }
