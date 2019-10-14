@@ -1,23 +1,26 @@
 <ion-header>
   <ion-toolbar class="barraSuperior">
     <ion-buttons slot="secondary">
-      <ion-button routerLink="/lista-problemas/">
-        <ion-icon slot="icon-only" name="trophy"></ion-icon>
+      <ion-button>
+        <ion-icon name="bulb"></ion-icon>
       </ion-button>
+      <ion-button >
+        <ion-icon name="close"></ion-icon>
+      </ion-button> 
+      <ion-button >
+          <ion-icon name="bug"></ion-icon>
+        </ion-button>
     </ion-buttons>
-
     <ion-title id="titulo"> </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  
-  
-
-  <ion-card>
-    <ion-card-subtitle class = "enunciado">
-      <span id="enunciado"> </span>
-    </ion-card-subtitle>
+  <ion-card> 
+      <img  src="/assets/cardEnunciado.png">
+      <ion-card-subtitle class = "enunciado">
+          <span id="enunciado"> </span>
+      </ion-card-subtitle>
+  </ion-card>
 
     <ion-slides pager="true" [options]="slideOpts" zoom>
       <ion-slide>
@@ -42,7 +45,7 @@
 
     </ion-slides>
     
-  </ion-card>
+ 
 
   <!--<ion-fab-button class = "buttonOne" color="warning"><ion-icon name="color-wand"></ion-icon></ion-fab-button>
     <ion-fab-button class = "buttonTw"color="warning"><ion-icon name="bulb"></ion-icon></ion-fab-button>
