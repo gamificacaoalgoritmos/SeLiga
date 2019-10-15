@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor( private alertController: AlertController ) {}
+ 
+  async emBreve() {
+    const alert = await this.alertController.create({
+      header: 'Função Indisponivel!',
+      message:  'Fica atento(a)! Logo você poderá se cadastrar!',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
 
 }

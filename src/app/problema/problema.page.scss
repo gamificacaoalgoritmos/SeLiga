@@ -4,21 +4,6 @@
     text-align: center;
     color: #b8b8b8
 }
-.buttonOne{
-    position: relative;
-    top: 10px;
-    left:60px;
-}
-.buttonTw{
-  position: absolute;
-  top: 10px;
-  left:130px;
-}
-.buttonTre{
-    position: absolute;
-    top: 10px;
-    left:200px;
-}
 .tituloQuestao{
     font-family:Arial, Helvetica, sans-serif;
     text-align: center;
@@ -34,9 +19,18 @@
 }
 
 ion-card-subtitle{
+    font: normal 18px/1.3em Arial, sans-serif;
+    text-align: center;
+    color: #000000;
+}
+.enunciado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
     font-family:Arial, Helvetica, sans-serif;
     text-align: center;
-    font-weight:bold;
-    color: #000000;
+    font-size: 16px;
 }
 
