@@ -30,6 +30,7 @@ export class ListaProblemasPage implements OnInit {
 
   listarProblemas(competencia) {
     let arrayProblemas = competencia['problemas'].split(", ")
+    document.getElementById('titulo').innerHTML = competencia['nome']
     var contexto = this
     for(var i = 0; i < arrayProblemas.length; i++) {
       var fb = firebase.database().ref('/problemas/' + arrayProblemas[i]).once('value').then(function(snapshot) {

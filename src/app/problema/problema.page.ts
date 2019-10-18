@@ -31,7 +31,8 @@ export class ProblemaPage implements OnInit {
   }
 
   mudarHtml(data) {
-    document.getElementById('titulo').innerHTML = data['titulo']
+    // document.getElementById('titulo').innerHTML = data['titulo']
+    document.getElementById('teste').innerHTML = data['titulo']
     document.getElementById('enunciado').innerHTML = data['enunciado']
 
     document.getElementById('a').innerHTML = data['alternativaA']
