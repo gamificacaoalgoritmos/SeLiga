@@ -16,7 +16,9 @@ const routes: Routes = [
   { path: 'competencia', loadChildren: './pagina-crud/competencia/competencia.module#CompetenciaPageModule' },
   { path: 'modalidade', loadChildren: './pagina-crud/modalidade/modalidade.module#ModalidadePageModule' },
   { path: 'pagina-crud', loadChildren: './pagina-crud/pagina-crud.module#PaginaCRUDPageModule' },
-  { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },
+  { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },  { path: 'cadastro', loadChildren: './cadastro/cadastro.module#CadastroPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+
 
 ];
 
