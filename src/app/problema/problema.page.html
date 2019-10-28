@@ -2,10 +2,10 @@
   <ion-toolbar class="barraSuperior">
     <ion-title id="titulo"><span id="teste"></span></ion-title>
     <ion-buttons slot="secondary">
-      <ion-button>
+      <ion-button (click)="exibeDica()">
         <ion-icon name="bulb"></ion-icon>
       </ion-button>
-      <ion-button >
+      <ion-button id="buttonEliminaIncorreta" (click)="eliminaIncorreta()">
         <ion-icon name="close"></ion-icon>
       </ion-button> 
       <ion-button >
@@ -17,9 +17,9 @@
 <ion-content>
   <ion-card> 
       <img  src="/assets/cardEnunciado.png">
-      <ion-card-subtitle class = "enunciado">
+      <ion-card-content class = "enunciado">
           <span id="enunciado"> </span>
-      </ion-card-subtitle>
+      </ion-card-content>
   </ion-card>
 
     <ion-slides pager="true" [options]="slideOpts" zoom>
@@ -57,10 +57,10 @@
 
   <ion-card>
     <div>
-      <ion-button color="light" class="buttonBorda" expand="full"><span id="a"></span></ion-button>
-      <ion-button color="light" class="buttonBorda" expand="full"><span id="b"></span></ion-button>
-      <ion-button color="light" class="buttonBorda" expand="full"><span id="c"></span></ion-button>
-      <ion-button color="light" class="buttonBorda" expand="full"><span id="d"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="full" (click)="corrigeResposta('a')" id="a"><span id="a"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="full" (click)="corrigeResposta('b')" id="b"><span id="b"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="full" (click)="corrigeResposta('c')" id="c"><span id="c"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="full" (click)="corrigeResposta('d')" id="d"><span id="d"></span></ion-button>
     </div>
   </ion-card>
 
