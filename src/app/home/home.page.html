@@ -1,15 +1,20 @@
 <ion-header>
   <ion-buttons>
     <ion-menu-button class = "menuBotao"></ion-menu-button>
+  <!--Retirar Botão após a finalização do Cadastro-->
+    <ion-button routerLink = "/modalidades">
+      <ion-icon name="star-outline"></ion-icon>
+    </ion-button>
   </ion-buttons>        
 </ion-header>
 <ion-content>
   <img src="/assets/Telas APP.png">
   
-      <ion-button class= "botaoCadastro" expand="full" (click) ="emBreve()">QUERO ME CADASTRAR</ion-button>
-      <ion-button class= "botaoAcesso" expand="full"routerLink='/modalidades'>JÁ SOU CADASTRADO(A)</ion-button>
-      </ion-content>
-  
+      <ion-button class= "botaoCadastro" expand="full" routerLink="/cadastro">QUERO ME CADASTRAR</ion-button>
+      <ion-button class= "botaoAcesso" expand="full"routerLink='/login'>JÁ SOU CADASTRADO(A)</ion-button>
+    
+    </ion-content> 
+
   
 
 
