@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProblemaService } from '../services/problemas.service';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -13,15 +14,84 @@ import { Observable } from 'rxjs';
 export class ProblemaPage implements OnInit {
   private id;
   private problema;
+  private dica;
+  private respostaCorreta;
   private afs = firebase.firestore()
 
-  constructor(private route: ActivatedRoute, private problemaService: ProblemaService) {}
+  constructor(private route: ActivatedRoute, private problemaService: ProblemaService, private alertController: AlertController) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id']
     this.getProblema(this.id)
-    
   }
+
+  //Exibe dica em um botão alert
+  async exibeDica() {
+    const alert = await this.alertController.create({
+      header: 'Dica',
+      message:  this.dica,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  //Corrige resposta, recebendo como parâmetro uma string correspondente à alternativa selecionada no HTML
+  corrigeResposta(identificador){
+    if(identificador==this.respostaCorreta){
+      this.alertAcerto();
+    }else{
+      this.alertErro();
+    }
+  }
+  //Alert de RESPOSTA CORRETA
+  async alertAcerto() {
+    const alert = await this.alertController.create({
+      header: 'VOCÊ ACERTOU!',
+      message:  'Parabéns você acertou!',
+      buttons: ['Próximo problema']
+    });
+    await alert.present();
+  }
+  //Alert de RESPOSTA INCORRETA
+  async alertErro() {
+    const alert = await this.alertController.create({
+      header: 'RESPOSTA ERRADA!',
+      message:  'Você errou a resposta! :( <br>Mas não desanime! Você tem outra chance! <br>Lembre-se que você pode usar a dica disponível para este problema, basta clicar no ícone da lâmpada na barra superior!',
+      buttons: ['Responder novamente']
+    });
+    await alert.present();
+  }
+
+
+  //Elimina uma das respostas incorretas
+  eliminaIncorreta(){
+    let alternativas=['a', 'b', 'c', 'd'];
+    let correta: number = alternativas.indexOf(this.respostaCorreta);
+
+    alternativas.splice(correta, 1);//Remove resposta correta do array
+
+    let eliminada = Math.floor(Math.random()*3);//Gera número aleatório entre 0 e 2 (índice entre as 3 alternativas erradas)
+    console.log("A alternativa eliminada foi a letra " +alternativas[eliminada]);
+
+    var botao = <HTMLInputElement> document.getElementById("buttonEliminaIncorreta");
+    botao.disabled=true;
+
+    var botaoEliminada = <HTMLInputElement> document.getElementById(alternativas[eliminada]);
+    botaoEliminada.disabled=true;
+    this.alertAltRemovida(alternativas[eliminada]);
+  }
+  
+  //Alert que mostra qual das alternativas foi eliminada
+  async alertAltRemovida(alt) {
+    const alert = await this.alertController.create({
+      header: 'Wally mandou dizer que...',
+      message:'A alternativa ('+alt +') está incorreta! <br> Ainda restam três alternativas para você escolher.',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+
 
   getProblema(codigo: string) {
     let agora = this
@@ -39,6 +109,9 @@ export class ProblemaPage implements OnInit {
     document.getElementById('b').innerHTML = data['alternativaB']
     document.getElementById('c').innerHTML = data['alternativaC']
     document.getElementById('d').innerHTML = data['alternativaD']
+
+    this.dica=data['dica'];
+    this.respostaCorreta=data['alternativaCorreta'];
 
     let imgCodigo = document.getElementById('programador')
     imgCodigo['src'] = data['imagemCodigo']
