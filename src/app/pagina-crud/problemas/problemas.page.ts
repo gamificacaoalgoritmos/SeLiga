@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Problema } from 'src/app/interfaces/problema';
-import { ProblemaService } from 'src/app/services/problemas.service';
+import { ProblemaInterface } from 'src/app/interfaces/problema';
+import { Problema  } from '../../model/problema';
 
 
 @Component({
@@ -10,14 +10,14 @@ import { ProblemaService } from 'src/app/services/problemas.service';
 })
 export class ProblemaPage implements OnInit {
   dados = {}
-  constructor(private problemaService: ProblemaService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  submitForm(dados: Problema) {
-    this.problemaService.addProblema(dados)
+  submitForm(dados: ProblemaInterface) {
+    var problema = new Problema(dados);
+    problema.addProblema();
     alert('adicionado com sucesso')
   }
-
 }

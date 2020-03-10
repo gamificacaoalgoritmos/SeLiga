@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { Modalidade  } from '../model/modalidade';
 
 @Component({
   selector: 'app-modalidades',
@@ -7,12 +8,24 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./modalidades.page.scss'],
 })
 export class ModalidadesPage implements OnInit {
+  modalidades = [];
 
   ngOnInit() {
   }
 
   navCtrl: any;
-  constructor( private alertController: AlertController ) {}
+  constructor( private alertController: AlertController ) {
+    var modalidade = new Modalidade();
+    var isso = this;
+    
+    modalidade.getModalidades().then(function(snapshot) {
+      var modalidades = Object.keys(snapshot); //pegar indices do objeto ou seja os codigos
+      for (var i = 0; i < modalidades.length; i++) {
+        isso.modalidades.push(snapshot[modalidades[i]]); //transformar num array
+      }
+    })
+    
+  }
  
   async emBreve() {
     const alert = await this.alertController.create({
