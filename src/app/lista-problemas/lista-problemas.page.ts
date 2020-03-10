@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { CompetenciaService } from '../services/competencia.service';
 import { Observable } from 'rxjs';
+import { Competencia  } from '../model/competencia';
+import { CompetenciaInterface  } from '../interfaces/competencia';
+import { Problema } from '../model/problema';
 
 @Component({
   selector: 'app-lista-problemas',
@@ -13,29 +15,32 @@ import { Observable } from 'rxjs';
 export class ListaProblemasPage implements OnInit {
   public id
   public competencia
-  public problemas: Observable<any>[] = []
+  public problemas = [];
 
-  constructor(private route: ActivatedRoute, private competenciaService: CompetenciaService) { 
+  constructor(private route: ActivatedRoute) { 
     this.id = this.route.snapshot.params['comp'] 
-    let contexto = this
-
-    let competencia = firebase.database().ref('/competencias/' + this.id).once('value').then(function(snapshot) {
-      contexto.listarProblemas(snapshot.val())
-    });
+    let isso = this
+    
+    var competencia = new Competencia();
+    competencia.getCompetencia(this.id).then(function(snapshot) {
+      isso.listarProblemas(snapshot)
+    })
   }
 
   ngOnInit() {
     
   }
 
-  listarProblemas(competencia) {
-    let arrayProblemas = competencia['problemas'].split(", ")
+  listarProblemas(competencia: CompetenciaInterface) {
+    let problemas = competencia['problemas'].split(", ")
     document.getElementById('titulo').innerHTML = competencia['nome']
-    var contexto = this
-    for(var i = 0; i < arrayProblemas.length; i++) {
-      var fb = firebase.database().ref('/problemas/' + arrayProblemas[i]).once('value').then(function(snapshot) {
-        contexto.problemas.push(snapshot.val())
-      });
+    var isso = this
+    for(var i = 0; i < problemas.length; i++) {
+      var problema = new Problema();
+      problema.getProblema(problemas[i]).then(function(snapshot) {
+        isso.problemas.push(snapshot);
+      })
+      
     }
     
   }

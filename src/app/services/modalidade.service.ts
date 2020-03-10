@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Modalidade } from '../interfaces/modalidade';
+import { ModalidadeInterface } from '../interfaces/modalidade';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators'
@@ -10,31 +10,24 @@ import * as firebase from 'firebase';
   providedIn: 'root'
 })
 export class ModalidadeService {
-  private afs = firebase.firestore()
-  private modalidadesCollection: AngularFirestoreCollection<Modalidade>
-  modalidades: Observable<Modalidade[]>
-  
-  constructor(private db: AngularFirestore) { 
-    this.modalidadesCollection = db.collection<Modalidade>('modalidades')
-    this.modalidades = this.modalidadesCollection.snapshotChanges().pipe(map(
-      actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data()
-          const id = a.payload.doc.id
 
-          return {id, ...data}
-        })
-      }
-    ))
+  constructor() { 
+    
   }
 
-  addModalidade(modalidade: Modalidade) {
+  addModalidade(modalidade: ModalidadeInterface) {
     firebase.database().ref('modalidades/' + modalidade.codigo).set(modalidade);
   }
 
   getModalidade(codigo: string) {
     return firebase.database().ref('/modalidades/' + codigo).once('value').then(function(snapshot) {
-    return snapshot.val()
+      return snapshot.val()
+    });
+  }
+  
+  getModalidades() {
+    return firebase.database().ref('/modalidades/').once('value').then(function(snapshot) {
+      return snapshot.val()
     });
   }
 }

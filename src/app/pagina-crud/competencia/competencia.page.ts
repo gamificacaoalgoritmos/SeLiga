@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Competencia } from 'src/app/interfaces/competencia';
+import { CompetenciaInterface } from 'src/app/interfaces/competencia';
 import { FormGroup } from '@angular/forms';
-import { CompetenciaService } from 'src/app/services/competencia.service';
+import { Competencia  } from '../../model/competencia';
 
 @Component({
   selector: 'app-competencia',
@@ -9,16 +9,21 @@ import { CompetenciaService } from 'src/app/services/competencia.service';
   styleUrls: ['./competencia.page.scss'],
 })
 export class CompetenciaPage implements OnInit {
-  dados = {}
+  dados = {};
+  competencia: Competencia;
 
-  constructor(private competenciaService: CompetenciaService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  submitForm(dados: Competencia) {
-    this.competenciaService.addCompetencia(dados)
-    alert('Adicionado com sucesso')
+  submitForm(dados: CompetenciaInterface) {
+    this.competencia = new Competencia(dados);
+    
+    this.competencia.addCompetencia();
+    
+    alert('Adicionado com sucesso');
   }
+  
 
 }

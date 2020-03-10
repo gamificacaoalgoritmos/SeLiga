@@ -1,22 +1,42 @@
 import { Problema } from './problema';
+import { CompetenciaInterface } from '../interfaces/competencia';
+import { CompetenciaService } from '../services/competencia.service';
 
 export class Competencia{
     nome: string;
     descricao: string;
     codigo: string;
     imagem: string;
-    problemas: Array<Problema> = []; 
-    teoria: Array<string> = [];
-    exemplo: Array<string> = [];
+    problemas: string; 
+    teoria: string;
+    exemplo: string;
+    competencia: CompetenciaInterface;
+    competenciaService: CompetenciaService;
 
-    constructor(nome: string, descricao: string, codigo: string, imagem: string, problemas: Problema[], teoria: string[], exemplo: string[]){
-        this.nome=nome;
-        this.descricao=descricao;
-        this.codigo=codigo;
-        this.imagem=imagem;
-        this.problemas=problemas;
-        this.teoria=teoria;
-        this.exemplo=exemplo;
+    constructor(competencia?){
+        if (competencia) {
+            this.nome=competencia.nome;
+            this.descricao=competencia.descricao;
+            this.codigo=competencia.codigo;
+            this.imagem=competencia.imagem;
+            this.problemas=competencia.problemas;
+            this.teoria=competencia.teoria;
+            this.exemplo=competencia.exemplo;
+            this.competencia = competencia;
+        }
+        this.competenciaService = new CompetenciaService();
+        
     }
-
+    
+    addCompetencia(){
+        this.competenciaService.addCompetencia(this.competencia);
+    }
+    
+    getCompetencia(codigo: string) {
+        return this.competenciaService.getCompetencia(codigo);
+    }
+    
+     getCompetencias() {
+        return this.competenciaService.getCompetencias();
+    }
 }

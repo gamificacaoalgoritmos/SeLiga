@@ -1,6 +1,6 @@
-import { Competencia } from './competencia';
+import { CompetenciaInterface } from './competencia';
 
-export interface Modalidade {
+export interface ModalidadeInterface {
     nome: string,
     descricao: string,
     codigo: string,
