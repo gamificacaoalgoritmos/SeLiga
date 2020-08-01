@@ -12,13 +12,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire'
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-<<<<<<< HEAD
 import * as firebase from 'firebase';
+import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 
 firebase.initializeApp(environment.firebase);
-=======
-import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
->>>>>>> upstream/master
 
 @NgModule({
   declarations: [AppComponent],

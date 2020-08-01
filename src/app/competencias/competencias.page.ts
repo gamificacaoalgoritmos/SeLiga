@@ -12,7 +12,6 @@ import { ModalidadeInterface  } from '../interfaces/modalidade';
 })
 
 export class CompetenciasPage {
-<<<<<<< HEAD
   public competencias = [];
   id;
 
@@ -39,10 +38,4 @@ export class CompetenciasPage {
     }
 
   }
-=======
-
-  constructor() { }
->>>>>>> upstream/master
-
-
 }

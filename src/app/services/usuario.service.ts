@@ -9,15 +9,8 @@ import * as firebase from 'firebase';
   providedIn: 'root'
 })
 export class UsuarioService {
-<<<<<<< HEAD
-
-  constructor(private db: AngularFirestore) { 
-    
-  }
-=======
   
   constructor() {}
->>>>>>> upstream/master
 
   addUsuario(usuario: UsuarioInterface) {
     firebase.database().ref('usuarios/' + usuario.codigo).set(usuario);
