@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalidadeService } from 'src/app/services/modalidade.service';
+import { Modalidade } from '../../model/modalidade';
 
 @Component({
   selector: 'app-modalidade',
@@ -9,13 +9,14 @@ import { ModalidadeService } from 'src/app/services/modalidade.service';
 export class ModalidadePage implements OnInit {
   dados = {}
 
-  constructor(private modalidadeService: ModalidadeService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
   submitForm(dados) {
-    this.modalidadeService.addModalidade(dados)
+    var modalidade = new Modalidade(dados);
+    modalidade.addModalidade();
     alert('Adicionado com sucesso')
   }
 

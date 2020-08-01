@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule', canActivate: [LoginGuard] },
   { path: 'modalidades', loadChildren: './modalidades/modalidades.module#ModalidadesPageModule', canActivate: [AuthGuard]},
-  { path: 'competencias', loadChildren: './competencias/competencias.module#CompetenciasPageModule', canActivate: [AuthGuard]},
+  { path: 'competencias/:id', loadChildren: './competencias/competencias.module#CompetenciasPageModule', canActivate: [AuthGuard]},
   { path: 'lista-problemas/:comp', loadChildren: './lista-problemas/lista-problemas.module#ListaProblemasPageModule', canActivate: [AuthGuard] },
   { path: 'lista-problemas', loadChildren: './lista-problemas/lista-problemas.module#ListaProblemasPageModule', canActivate: [AuthGuard] },
   { path: 'problema/:id', loadChildren: './problema/problema.module#ProblemaPageModule', canActivate: [AuthGuard] },
@@ -21,8 +21,6 @@ const routes: Routes = [
   { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },
   { path: 'cadastro', loadChildren: './cadastro/cadastro.module#CadastroPageModule', canActivate: [LoginGuard] },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule', canActivate: [LoginGuard] },
-
-
 ];
 
 @NgModule({

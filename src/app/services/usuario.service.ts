@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from '../interfaces/usuario';
+import { UsuarioInterface } from '../interfaces/usuario';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
 import { map, switchMap } from 'rxjs/operators'
 import { Observable, Subject } from 'rxjs'
@@ -12,7 +12,7 @@ export class UsuarioService {
   
   constructor() {}
 
-  addUsuario(usuario: Usuario) {
+  addUsuario(usuario: UsuarioInterface) {
     firebase.database().ref('usuarios/' + usuario.codigo).set(usuario);
   }
 

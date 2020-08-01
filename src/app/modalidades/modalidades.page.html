@@ -1,11 +1,8 @@
 
 
 <ion-content>
- 
-    <ion-img src="/assets/modalidades/M001.png" routerLink="/competencias"></ion-img>
- 
-    <ion-img src="/assets/modalidades/M002.png" (click)="emBreve()"></ion-img>
- 
-    <ion-img src="/assets/modalidades/M003.png" (click)="emBreve()"></ion-img>
-
+     <span *ngFor="let modalidade of modalidades">
+         <ion-img  *ngIf="modalidade.codigo == 'M001'" src="{{modalidade.imagem}}" [routerLink]="['/competencias', modalidade.codigo]"></ion-img>
+         <ion-img  *ngIf="modalidade.codigo != 'M001'"  (click)="emBreve()" src="{{modalidade.imagem}}"></ion-img>
+     </span>
 </ion-content>

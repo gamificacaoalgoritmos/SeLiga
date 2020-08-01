@@ -1,4 +1,4 @@
-export interface Problema {
+export interface ProblemaInterface {
     codigo: string,
     titulo: string,
     enunciado: string,

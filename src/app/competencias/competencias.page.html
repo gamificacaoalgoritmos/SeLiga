@@ -11,14 +11,11 @@
       </ion-card-header>
   </ion-card>
 -->
-  <ion-img class = "imgBorda" src="/assets/competencias/C001.png" [routerLink]="['/lista-problemas', 'C001']"></ion-img>
-  <ion-img class = "imgBorda" src="/assets/competencias/C002.png" [routerLink]="['/lista-problemas', 'C002']"></ion-img>
-  <ion-img class = "imgBorda" src="/assets/competencias/C003.png" [routerLink]="['/lista-problemas', 'C003']"></ion-img>
-  <ion-img class = "imgBorda" src="/assets/competencias/C004.png" [routerLink]="['/lista-problemas', 'C004']"></ion-img>
-  <ion-img class = "imgBorda" src="/assets/competencias/C005.png" [routerLink]="['/lista-problemas', 'C005']"></ion-img>
-  <ion-img class = "imgBorda" src="/assets/competencias/C006.png" [routerLink]="['/lista-problemas', 'C006']"></ion-img>
-  <ion-img class = "imgBorda" src="/assets/competencias/C007.png" [routerLink]="['/lista-problemas', 'C007']"></ion-img>
-  <ion-img class = "imgBorda" src="/assets/competencias/C008.png" [routerLink]="['/lista-problemas', 'C008']"></ion-img>
-  <ion-img class = "imgBorda" src="/assets/competencias/WZN.png" [routerLink]="['/lista-problemas', 'WZN']"></ion-img>
+
+  <ion-img *ngFor="let competencia of competencias" class = "imgBorda" src="{{competencia.imagem}}" [routerLink]="['/lista-problemas', competencia.codigo]"></ion-img>
+  
+  
+  
+
 </ion-content>
 
