@@ -14,7 +14,7 @@ export class ModalidadesPage implements OnInit {
   }
 
   navCtrl: any;
-  constructor( private alertController: AlertController ) {
+  constructor( private alertController: AlertController) {
     var modalidade = new Modalidade();
     var isso = this;
     

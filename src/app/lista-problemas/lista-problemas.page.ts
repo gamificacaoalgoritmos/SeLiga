@@ -14,10 +14,12 @@ import { Problema } from '../model/problema';
 })
 export class ListaProblemasPage implements OnInit {
   public id
+  public modalidade_id
   public competencia
   public problemas = [];
 
   constructor(private route: ActivatedRoute) { 
+    this.modalidade_id = this.route.snapshot.params['mod']
     this.id = this.route.snapshot.params['comp'] 
     let isso = this
     
