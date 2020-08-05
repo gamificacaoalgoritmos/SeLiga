@@ -13,7 +13,7 @@
   <ion-list>
 
     <ion-item *ngFor="let problema of problemas">
-      <ion-fab-button size="small" [routerLink] ="['/problema', problema.codigo]" color="dark">
+      <ion-fab-button size="small" [routerLink] ="['/problema', modalidade_id, id, problema.codigo]" color="dark">
         <ion-icon name="play"></ion-icon>
       </ion-fab-button>
       <ion-label>

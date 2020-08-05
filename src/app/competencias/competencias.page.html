@@ -12,7 +12,7 @@
   </ion-card>
 -->
 
-  <ion-img *ngFor="let competencia of competencias" class = "imgBorda" src="{{competencia.imagem}}" [routerLink]="['/lista-problemas', competencia.codigo]"></ion-img>
+  <ion-img *ngFor="let competencia of competencias" class = "imgBorda" src="{{competencia.imagem}}" [routerLink]="['/lista-problemas', id, competencia.codigo]"></ion-img>
   
   
   
