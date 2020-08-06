@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { UsuarioService } from '../services/usuario.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cadastro',
@@ -39,7 +40,20 @@ export class CadastroPage implements OnInit {
       }
       this.usuarioService.addUsuario(usuario)
     } catch (error) {
-      this.presentToast(error.message)
+      console.log(error)
+      let erro_nao_cadastrado = true
+      
+      for(let code in environment.error_codes) {
+        if(error.code == code) {
+          erro_nao_cadastrado = false
+          this.presentToast(environment.error_codes[code])
+        }
+      }
+
+      if(erro_nao_cadastrado) {
+        this.presentToast(error.message)
+      }
+      
     } finally {
       this.loading.dismiss()
     }

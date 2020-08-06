@@ -15,16 +15,16 @@
     
     <ion-list>
         <ion-item>
-          <ion-input placeholder="Nome Completo" [(ngModel)]="usuario.nome"></ion-input>
+          <ion-input placeholder="Nome Completo" required [(ngModel)]="usuario.nome"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input placeholder="User" [(ngModel)]="usuario.nick"></ion-input>
+            <ion-input placeholder="User" required [(ngModel)]="usuario.nick"></ion-input>
           </ion-item>
         <ion-item>
-          <ion-input placeholder="Email" [(ngModel)]="usuario.email"></ion-input>
+          <ion-input placeholder="Email" required [(ngModel)]="usuario.email"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input placeholder="Senha" type="password" [(ngModel)]="usuario.senha"></ion-input>
+            <ion-input placeholder="Senha" required type="password" [(ngModel)]="usuario.senha"></ion-input>
           </ion-item>
     </ion-list>
 
