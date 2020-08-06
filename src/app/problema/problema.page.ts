@@ -93,7 +93,7 @@ export class ProblemaPage implements OnInit {
   async alertAcerto() {
     const alert = await this.alertController.create({
       header: 'VOCÊ ACERTOU!',
-      message: 'Parabéns você acertou!',
+      message: 'Parabéns, você acertou!',
       buttons: [
         {
           text: 'Próximo problema',
@@ -119,10 +119,10 @@ export class ProblemaPage implements OnInit {
   async alertUltimoProblema() {
     const alert = await this.alertController.create({
       header: 'Parabéns!',
-      message: 'Você concluio a competencia ' + this.competencia.nome,
+      message: 'Você concluiu a Competência ' + this.competencia.nome,
       buttons: [
         {
-          text: 'Próxima competencia',
+          text: 'Próxima Competência',
           role: 'next',
           handler: () => {
             console.log('Proxima competencia')
@@ -155,9 +155,9 @@ export class ProblemaPage implements OnInit {
   async alertUltimaCompetencia() {
     const alert = await this.alertController.create({
       header: 'Parabéns!',
-      message: 'Você conclui a ' + this.modalidade.nome,
+      message: 'Você concluiu a ' + this.modalidade.nome,
       buttons: [{
-        text: 'Próxima modalidade',
+        text: 'Voltar para Modalidades',
         role: 'next',
         handler: () => {
           this.router.navigate(['/modalidades'])
