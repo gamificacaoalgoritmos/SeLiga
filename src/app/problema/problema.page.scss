@@ -15,7 +15,7 @@
 }
 .buttonBorda{
     border:1px inset #000000;
-    font: small-caps 12px/1.3em Arial, sans-serif;
+    font: small-caps normal 12px/1.3em Arial, sans-serif;
 }
 
 ion-card-subtitle{
@@ -34,4 +34,36 @@ ion-card-subtitle{
     font-size: 16px;
     padding-top: 5%;
 }
+
+//Efeito aparece-desaparece dos textos de instrução dos slides
+@keyframes fa-blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0; }
+}
+.fa-blink {
+  -webkit-animation: fa-blink 7s linear infinite;
+  -moz-animation: fa-blink 7s linear infinite;
+  -ms-animation: fa-blink 7s linear infinite;
+  -o-animation: fa-blink 7s linear infinite;
+  animation: fa-blink 7s linear infinite alternate;
+}
+
+//textos e ícone instrutivos do slide de imagens do problema
+.texto-slides{
+    font-style: italic;
+    font-size: 12px;
+    text-align:center;
+    display: flex;
+    align-items: center; //centraliza horizontalmente
+    justify-content: center; //cetraliza verticalmente
+}
+.drag-icon{
+    max-width:60px;
+    max-height:60px;
+    width: auto;
+    height: auto;
+    padding-bottom: 20px;
+}
+
 
