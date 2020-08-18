@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Competencia } from '../model/competencia';
 
 @Component({
   selector: 'app-teoria',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teoria.page.scss'],
 })
 export class TeoriaPage implements OnInit {
+  competencia_id;
+  teorias = []
+
   ngOnInit() {
   }
   
@@ -14,6 +19,14 @@ export class TeoriaPage implements OnInit {
     speed: 400
   };
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {
+    this.competencia_id = this.route.snapshot.params['comp']
+    let isso = this
+
+    let competencia = new Competencia();
+    competencia.getCompetencia(this.competencia_id).then(function(snapshot) {
+      isso.teorias = snapshot.teoria.split(', ')
+    })
+  }
 
 }

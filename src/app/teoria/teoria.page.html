@@ -1,9 +1,7 @@
 <ion-header>
   <ion-toolbar class="barraSuperior">
     <ion-buttons slot="secondary">
-      <ion-button routerLink="/lista-problemas">
-        <ion-icon slot="icon-only" name="checkmark-circle"></ion-icon>
-      </ion-button>
+      <ion-back-button text="" icon="checkmark-circle"></ion-back-button>
     </ion-buttons>
     <ion-title>
       Teorização
@@ -14,29 +12,13 @@
 <ion-content>
     <ion-slides>
   <!-- ngFor os slides-->
-        <ion-slide class="swiper-zoom-container">
-            <img class="img" src="/assets/teorias/wally/C001/T1001.png">
-            <!-- <ion-button href="/assets/teorias/wally/C001/T1001.png" download="Teoria Wally C001 1.png">
-              Download <ion-icon slot="icon-only" name="cloud-download"></ion-icon>
-            </ion-button> -->
-        </ion-slide>
-
-        <ion-slide class="swiper-zoom-container">
-          <img class="img" src="/assets/teorias/wally/C001/T1002.png">
-            <!-- <ion-button href="/assets/teorias/wally/C001/T1002.png" download="Teoria Wally C001 2.png">
-              Download <ion-icon slot="icon-only" name="cloud-download"></ion-icon>
-            </ion-button> -->
-        </ion-slide>
-
-        <ion-slide class="swiper-zoom-container">
-            <img class="img" src="/assets/teorias/wally/C001/T1003.png">
-            <!-- <ion-button href="/assets/teorias/wally/C001/T1003.png" download="Teoria Wally C001 3.png">
-              Download <ion-icon slot="icon-only" name="cloud-download"></ion-icon>
-            </ion-button> -->
-        </ion-slide>
-
-
-      </ion-slides>
+      <ion-slide *ngFor="let teoria of teorias" class="swiper-zoom-container">
+        <img class="img" src="{{teoria}}">
+        <!-- <ion-button href="/assets/teorias/wally/C001/T1001.png" download="Teoria Wally C001 1.png">
+          Download <ion-icon slot="icon-only" name="cloud-download"></ion-icon>
+        </ion-button> -->
+      </ion-slide>
+    </ion-slides>
 
   <!--
   <ion-slides pager="true" [options]="slideOpts" zoom>
