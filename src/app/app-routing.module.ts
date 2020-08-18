@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'lista-problemas', loadChildren: './lista-problemas/lista-problemas.module#ListaProblemasPageModule', canActivate: [AuthGuard] },
   { path: 'problema/:mod/:comp/:id', loadChildren: './problema/problema.module#ProblemaPageModule', canActivate: [AuthGuard] },
   { path: 'teoria/:comp', loadChildren: './teoria/teoria.module#TeoriaPageModule', canActivate: [AuthGuard] },
-  { path: 'exemplificacao', loadChildren: './exemplificacao/exemplificacao.module#ExemplificacaoPageModule', canActivate: [AuthGuard] },
+  { path: 'exemplificacao/:comp', loadChildren: './exemplificacao/exemplificacao.module#ExemplificacaoPageModule', canActivate: [AuthGuard] },
   { path: 'problemas', loadChildren: './pagina-crud/problemas/problemas.module#ProblemasPageModule' },
   { path: 'competencia', loadChildren: './pagina-crud/competencia/competencia.module#CompetenciaPageModule' },
   { path: 'modalidade', loadChildren: './pagina-crud/modalidade/modalidade.module#ModalidadePageModule' },

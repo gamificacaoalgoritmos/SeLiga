@@ -4,9 +4,8 @@
       <!-- <ion-button href="/assets/exemplificacao/wally/C001.png" download="Exemplificação Wally C001.png">
         <ion-icon slot="icon-only" name="cloud-download"></ion-icon>
       </ion-button> -->
-      <ion-button routerLink="/lista-problemas">
-        <ion-icon slot="icon-only" name="checkmark-circle"></ion-icon>
-      </ion-button>
+      <ion-back-button text="" icon="checkmark-circle"></ion-back-button>
+      
     </ion-buttons>
     <ion-title>
       Exemplificação
@@ -18,7 +17,7 @@
   <ion-slides pager="true" [options]="slideOpts" zoom>
     <ion-slide>
       <div class="swiper-zoom-container">
-        <img class="img" src="/assets/exemplificacao/wally/C001.png">
+        <img class="img" src="{{exemplo}}">
       </div>
     </ion-slide>
   </ion-slides>
