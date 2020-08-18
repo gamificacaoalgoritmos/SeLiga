@@ -16,7 +16,9 @@ export class ListaProblemasPage implements OnInit {
   public id
   public modalidade_id
   public competencia
-  public problemas = [];
+  public problemas = []
+  public teorias = ""
+  public link_exemplo = ""
 
   constructor(private route: ActivatedRoute) { 
     this.modalidade_id = this.route.snapshot.params['mod']
