@@ -8,6 +8,8 @@ import { AlertController } from '@ionic/angular';
 import { Competencia } from '../model/competencia';
 import { isoStringToDate } from '@angular/common/src/i18n/format_date';
 import { Modalidade } from '../model/modalidade';
+import { UsuarioService } from '../services/usuario.service';
+import { COPYFILE_FICLONE } from 'constants';
 
 
 @Component({
@@ -16,6 +18,7 @@ import { Modalidade } from '../model/modalidade';
   styleUrls: ['./problema.page.scss'],
 })
 export class ProblemaPage implements OnInit {
+  private problema_respondido = false
   private id;
   private competencia_id;
   private competencia;
@@ -33,6 +36,7 @@ export class ProblemaPage implements OnInit {
     private route: ActivatedRoute,
     private problemaService: ProblemaService,
     private alertController: AlertController,
+    private usuarioService: UsuarioService
   ) { }
 
   ngOnInit() {
@@ -47,6 +51,30 @@ export class ProblemaPage implements OnInit {
     })
 
     this.getProblema(this.id)
+
+    //verificar se o problema foi respondido
+    let problemas_respondidos
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        isso.usuarioService.getUsuario(user.uid).then(snapshot => {
+          problemas_respondidos = snapshot.problemas_respondidos.split(', ')
+          problemas_respondidos.forEach(item => {
+            if(item == isso.id) {
+              //desativar botoes e colorir de verde
+              isso.problema_respondido = true
+              let botoes = document.getElementsByClassName("buttonBorda")
+              for(let item in botoes) {
+                if(botoes[item].id != isso.respostaCorreta && typeof(botoes[item].id) == "string") {
+                  botoes[item].setAttribute('disabled', 'true')
+                  //colorir de verde aqui
+                }
+              }
+            }
+          })
+        })
+      }
+    });
+    //
 
     this.modalidade_id = this.route.snapshot.params['mod']
     let modalidade = new Modalidade()
@@ -68,7 +96,16 @@ export class ProblemaPage implements OnInit {
 
   //Corrige resposta, recebendo como parâmetro uma string correspondente à alternativa selecionada no HTML
   corrigeResposta(identificador) {
+    let this1 = this
+
     if (identificador == this.respostaCorreta) {
+      //salva problema respondido no usuario
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          this1.usuarioService.problemaRespondido(user.uid, this1.id)
+        }
+      });
+
       let ultimo = false
       let ultimaCompetencia = false
 

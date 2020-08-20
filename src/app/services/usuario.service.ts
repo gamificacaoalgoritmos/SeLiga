@@ -21,4 +21,18 @@ export class UsuarioService {
     return snapshot.val()
     });
   }
+
+  problemaRespondido(codigo_usuario: string, codigo_problema: string) {
+    let problemas_respondidos 
+
+    this.getUsuario(codigo_usuario).then(value => {
+        problemas_respondidos = value.problemas_respondidos
+    
+        problemas_respondidos += codigo_problema + ", "
+    
+        firebase.database().ref('/usuarios/' + codigo_usuario).update({
+          'problemas_respondidos': problemas_respondidos
+        })
+    })    
+  }
 }

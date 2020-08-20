@@ -3,6 +3,7 @@ export interface UsuarioInterface {
     nome: string,
     nick: string,
     email: string,
-    pontuacao: number
+    pontuacao: number,
+    problemas_respondidos: string
 }
 
