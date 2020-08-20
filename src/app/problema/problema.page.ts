@@ -9,8 +9,6 @@ import { Competencia } from '../model/competencia';
 import { isoStringToDate } from '@angular/common/src/i18n/format_date';
 import { Modalidade } from '../model/modalidade';
 import { UsuarioService } from '../services/usuario.service';
-import { COPYFILE_FICLONE } from 'constants';
-
 
 @Component({
   selector: 'app-problema',
