@@ -52,17 +52,17 @@ export class ProblemaPage implements OnInit {
 
     //verificar se o problema foi respondido
     let problemas_respondidos
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         isso.usuarioService.getUsuario(user.uid).then(snapshot => {
           problemas_respondidos = snapshot.problemas_respondidos.split(', ')
           problemas_respondidos.forEach(item => {
-            if(item == isso.id) {
+            if (item == isso.id) {
               //desativar botoes e colorir de verde
               isso.problema_respondido = true
               let botoes = document.getElementsByClassName("buttonBorda")
-              for(let item in botoes) {
-                if(botoes[item].id != isso.respostaCorreta && typeof(botoes[item].id) == "string") {
+              for (let item in botoes) {
+                if (botoes[item].id != isso.respostaCorreta && typeof (botoes[item].id) == "string") {
                   botoes[item].setAttribute('disabled', 'true')
                   //colorir de verde aqui
                 }
@@ -98,7 +98,7 @@ export class ProblemaPage implements OnInit {
 
     if (identificador == this.respostaCorreta) {
       //salva problema respondido no usuario
-      firebase.auth().onAuthStateChanged(function(user) {
+      firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
           this1.usuarioService.problemaRespondido(user.uid, this1.id)
         }
@@ -109,14 +109,14 @@ export class ProblemaPage implements OnInit {
 
       for (let i = 0; i < this.problemas_da_competencia.length; i++) {
         if (i == (this.problemas_da_competencia.length - 1) && this.problemas_da_competencia[i] == this.id) {
-          for(let j = 0; j < this.competencias_da_modalidade.length; j++) {
-            if(j == this.competencias_da_modalidade.length - 1 && this.competencia_id == this.competencias_da_modalidade[j]) {
+          for (let j = 0; j < this.competencias_da_modalidade.length; j++) {
+            if (j == this.competencias_da_modalidade.length - 1 && this.competencia_id == this.competencias_da_modalidade[j]) {
               ultimaCompetencia = true
               this.alertUltimaCompetencia();
             }
           }
           ultimo = true
-          if(ultimaCompetencia == false) this.alertUltimoProblema()
+          if (ultimaCompetencia == false) this.alertUltimoProblema()
         }
       }
       if (ultimo == false) this.alertAcerto()
@@ -181,8 +181,17 @@ export class ProblemaPage implements OnInit {
   async alertErro() {
     const alert = await this.alertController.create({
       header: 'RESPOSTA ERRADA!',
-      message: 'Você errou a resposta! :( <br>Mas não desanime! Você tem outra chance! <br>Lembre-se que você pode usar a dica disponível para este problema, basta clicar no ícone da lâmpada na barra superior!',
-      buttons: ['Responder novamente']
+      message: 'Você errou a resposta! :( <br>Mas não desanime! Você tem outra chance! <br> Lembre-se que você ainda pode usar os poderes de Wally: exibir dica ou eliminar uma resposta incorreta.',
+      buttons: [
+        {
+          text: 'Tentar novamente'
+        }, {
+          text: 'Exibir Dica',
+          handler: () => {
+            this.exibeDica();
+          }
+        }
+      ]
     });
     await alert.present();
   }
