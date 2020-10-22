@@ -9,7 +9,9 @@
     margin-right: auto
 }
 .botãoCadastro{
-    --background:#fdad1a;
-
+    --background:#ff914d;
 }
 
+ion-content {
+    --background: #ffff00 url('../../assets/background.png') no-repeat center center / cover !important;
+}

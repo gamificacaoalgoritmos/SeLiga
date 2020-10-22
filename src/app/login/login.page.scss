@@ -9,6 +9,13 @@
     margin-right: auto
 }
 .botãoCadastro{
-    --background:#fdad1a;
+    --background:#ff7c2b;
+}
 
+.botãoEntrar{
+    --background: #ff914d;
+}
+
+ion-content {
+    --background: #ffff00 url('../../assets/background.png') no-repeat center center / cover !important;
 }

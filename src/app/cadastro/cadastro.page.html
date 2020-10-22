@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar class="barraSuperior">
-    <ion-buttons slot="secondary">
-      <ion-button routerLink = "/home">
+    <ion-buttons slot="start">
+      <ion-button routerLink = "/login">
         <ion-icon name="arrow-round-back"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -10,7 +10,6 @@
 </ion-header>
 
 <ion-content>
-  
      <!-- <img src="/assets/icon/logoSeLiga.png" class="imgTopo"> -->
     
     <ion-list>
@@ -28,6 +27,6 @@
           </ion-item>
     </ion-list>
 
-        <ion-button class = "botãoCadastro" (click)="cadastrar()">CADASTRAR</ion-button>
+        <ion-button class = "botãoCadastro" expand="block" (click)="cadastrar()">Cadastrar</ion-button>
     
 </ion-content>
