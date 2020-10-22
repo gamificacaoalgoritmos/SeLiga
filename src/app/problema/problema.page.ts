@@ -61,6 +61,8 @@ export class ProblemaPage implements OnInit {
               //desativar botoes e colorir de verde
               isso.problema_respondido = true
               let botoes = document.getElementsByClassName("buttonBorda")
+              var botao = <HTMLInputElement>document.getElementById("buttonEliminaIncorreta");
+              botao.disabled = true;
               for (let item in botoes) {
                 if (botoes[item].id != isso.respostaCorreta && typeof (botoes[item].id) == "string") {
                   botoes[item].setAttribute('disabled', 'true')
