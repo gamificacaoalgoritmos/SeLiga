@@ -12,15 +12,26 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   public appPages = [
     {
-      title: 'Home',
+      title: 'Minhas conquistas',
+      url: '/conquistas',
+      icon: 'trophy'
+    },
+    {
+      title: 'Jogar',
       url: '/home',
       icon: 'home'
     },
     {
-      title: 'Sobre',
+      title: 'Como jogar?',
+      url: '/tutorial',
+      icon: 'help-circle'
+    },
+    {
+      title: 'Sobre nós',
       url: '/sobre',
       icon: 'information-circle-outline'
     }
+
   ];
 
   constructor(

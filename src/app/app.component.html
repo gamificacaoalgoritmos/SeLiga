@@ -8,6 +8,18 @@
       </ion-header>
       <ion-content>
         <ion-list>
+
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img src="assets/avatar.jpg">
+            </ion-thumbnail>
+            <ion-label>
+              <h2>Olá, nomeUser!</h2>
+              <h3>Nome completo</h3>
+              <p>Pontuação:</p>
+            </ion-label>
+          </ion-item>
+
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
@@ -16,9 +28,7 @@
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
-          <ion-item>
-            <ion-button (click)="logout()">Logout</ion-button>
-          </ion-item>
+            <ion-button (click)="logout()" expand="block" color="danger">Sair</ion-button>
         </ion-list>
       </ion-content>
     </ion-menu>
