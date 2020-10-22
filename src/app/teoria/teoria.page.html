@@ -10,15 +10,13 @@
 </ion-header>
 
 <ion-content>
-    <ion-slides pager="true">
-  <!-- ngFor os slides-->
-      <ion-slide *ngFor="let teoria of teorias" class="swiper-zoom-container">
+  <ion-slides pager="true" [options]="slideOpts" zoom>
+    <ion-slide *ngFor="let teoria of teorias" class="swiper-zoom-container">
+      <div class="swiper-zoom-container">
         <img class="img" src="{{teoria}}">
-        <!-- <ion-button href="/assets/teorias/wally/C001/T1001.png" download="Teoria Wally C001 1.png">
-          Download <ion-icon slot="icon-only" name="cloud-download"></ion-icon>
-        </ion-button> -->
-      </ion-slide>
-    </ion-slides>
+      </div>
+    </ion-slide>
+  </ion-slides>
 
   <!--
   <ion-slides pager="true" [options]="slideOpts" zoom>

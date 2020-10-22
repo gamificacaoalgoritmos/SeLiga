@@ -2,3 +2,14 @@
     font: italic small-caps normal 18px/1.3em Arial, sans-serif;
     --background:#ff6d05;
 }
+
+/*Configurações de paginação dos slides de apresentação*/
+:host ::ng-deep .swiper-pagination{
+    bottom: 5%;
+    .swiper-pagination-bullet {
+        --bullet-background: #c76e36;
+    }
+    .swiper-pagination-bullet-active {
+      --bullet-background:transparent;
+    } 
+  }
