@@ -16,13 +16,13 @@
 
 /*Configurações de background*/
 ion-content{
-  --ion-background-color: #ffde59;
+  --ion-background-color: #ffefad;
 }
 
 /*Configurações dos slides de apresentação inicial*/
 ion-slides {
   height: 83vh;
-  background-color:#ffde59;
+  background-color:#ffefad;
 }
 
 /*Configurações de paginação dos slides de apresentação*/
@@ -39,6 +39,6 @@ ion-slides {
 /*Configurações da barra superior*/
 .barraSuperior{
   font: italic small-caps normal 18px/1.3em Arial, sans-serif;
-  --background:#ffde59;
+  --background:#fdaf13;
   text-align: center;
 } 
