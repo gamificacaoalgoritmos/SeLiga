@@ -13,9 +13,17 @@
     font: italic small-caps normal 18px/1.3em Arial, sans-serif;
     --background:#ff6d05;
 }
+
 .buttonBorda{
-    border:1px inset #000000;
     font: small-caps normal 12px/1.3em Arial, sans-serif;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(99, 99, 99, 0.75);
+    -moz-box-shadow:    4px 4px 5px 0px rgba(99, 99, 99, 0.75);
+    box-shadow:         4px 4px 5px 0px rgba(99, 99, 99, 0.75);
+    margin-top: 12px;
+}
+
+.alternativas{
+    padding: 8px;
 }
 
 ion-card-subtitle{
@@ -31,7 +39,7 @@ ion-card-subtitle{
     transform: translate(-50%, -50%);
     font-family:Arial, Helvetica, sans-serif;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     padding-top: 5%;
 }
 
@@ -41,6 +49,8 @@ ion-card-subtitle{
     50% { opacity: 0.5; }
     100% { opacity: 0; }
 }
+
+//Efeito sombra nos botões de alternativa
 .fa-blink {
   -webkit-animation: fa-blink 7s linear infinite;
   -moz-animation: fa-blink 7s linear infinite;

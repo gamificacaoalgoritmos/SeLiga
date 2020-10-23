@@ -63,14 +63,12 @@
           descrição
           <br>-->
 
-  <ion-card>
-    <div>
-      <ion-button color="light" class="buttonBorda" expand="full" (click)="corrigeResposta('a')" id="a"><span id="a"></span></ion-button>
-      <ion-button color="light" class="buttonBorda" expand="full" (click)="corrigeResposta('b')" id="b"><span id="b"></span></ion-button>
-      <ion-button color="light" class="buttonBorda" expand="full" (click)="corrigeResposta('c')" id="c"><span id="c"></span></ion-button>
-      <ion-button color="light" class="buttonBorda" expand="full" (click)="corrigeResposta('d')" id="d"><span id="d"></span></ion-button>
+    <div class="alternativas">
+      <ion-button color="light" class="buttonBorda" expand="block" (click)="corrigeResposta('a')" id="a"><span id="a"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="block" (click)="corrigeResposta('b')" id="b"><span id="b"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="block" (click)="corrigeResposta('c')" id="c"><span id="c"></span></ion-button>
+      <ion-button color="light" class="buttonBorda" expand="block" (click)="corrigeResposta('d')" id="d"><span id="d"></span></ion-button>
     </div>
-  </ion-card>
 
   <footer>
       <p class="rodape">© 2019 Se Liga Aê! Todos os direitos reservados.
