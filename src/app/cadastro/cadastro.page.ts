@@ -37,7 +37,9 @@ export class CadastroPage implements OnInit {
         nick: this.usuario['nick'],
         email: this.usuario['email'],
         pontuacao: 0,
-        problemas_respondidos: ""
+        problemas_respondidos: "",
+        quantidade_problemas_respondidos: 0,
+        medalhas: ""
       }
       this.usuarioService.addUsuario(usuario)
     } catch (error) {

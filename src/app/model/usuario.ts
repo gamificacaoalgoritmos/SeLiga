@@ -4,5 +4,7 @@ export class Usuario{
     email: string;
     senha: string;
     pontuacao: number;
-    
+    problemas_respondidos: string;
+    quantidade_problemas_respondidos: number;
+    medalhas: string;
 }
