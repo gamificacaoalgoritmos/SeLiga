@@ -28,13 +28,20 @@ export class UsuarioService {
 
     this.getUsuario(codigo_usuario).then(value => {
         problemas_respondidos = value.problemas_respondidos
-    
         problemas_respondidos += codigo_problema + ", "
+
+        let quantidade_problemas_respondidos = value.quantidade_problemas_respondidos
+        quantidade_problemas_respondidos++
     
         firebase.database().ref('/usuarios/' + codigo_usuario).update({
-          'problemas_respondidos': problemas_respondidos
+          'problemas_respondidos': problemas_respondidos,
+          'quantidade_problemas_respondidos': quantidade_problemas_respondidos
         })
-    })    
+    })
+
+    
+    
+    
   }
 
   getProblemasRespondido() {

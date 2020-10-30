@@ -66,7 +66,10 @@ export class ProblemaPage implements OnInit {
               for (let item in botoes) {
                 if (botoes[item].id != isso.respostaCorreta && typeof (botoes[item].id) == "string") {
                   botoes[item].setAttribute('disabled', 'true')
-                  //colorir de verde aqui
+                  //botões errados
+                } else {
+                  //botão certo
+                  botoes[item].setAttribute('disabled', 'true')
                 }
               }
             }
@@ -105,6 +108,8 @@ export class ProblemaPage implements OnInit {
           this1.usuarioService.problemaRespondido(user.uid, this1.id)
         }
       });
+
+      
 
       let ultimo = false
       let ultimaCompetencia = false
