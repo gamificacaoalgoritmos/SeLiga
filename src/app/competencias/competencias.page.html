@@ -17,10 +17,13 @@
       </ion-card-header>
   </ion-card>
 -->
-
-  <button [routerLink]="['/lista-problemas', id, competencia.codigo]" id="{{competencia.codigo}}" *ngFor="let competencia of competencias">
-    <ion-img class = "imgBorda" src="{{competencia.imagem}}"></ion-img>
-  </button>
+  
+  <ion-item *ngFor="let competencia of competencias">
+    <button id="{{competencia.codigo}}" [routerLink]="['/lista-problemas', id, competencia.codigo]">
+      <img src="{{competencia.imagem}}">
+    </button>
+    </ion-item>
+  
   
   
   
