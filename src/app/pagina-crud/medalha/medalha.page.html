@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>medalha</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button [routerLink]="['/pagina-crud']" expand="full">Voltar</ion-button>
+
+  <form (ngSubmit)="submitForm(dados)">
+    <ion-list>
+      <ion-item>
+        <ion-label>Codigo</ion-label>
+        <ion-input type="text" aria-required="" [(ngModel)]="dados.codigo" id="codigo" name="codigo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Imagem</ion-label>
+        <ion-input aria-required="" type="text" [(ngModel)]="dados.imagem" id="imagem" name="imagem"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Titulo</ion-label>
+        <ion-input aria-required="" type="text" [(ngModel)]="dados.titulo" id="titulo" name="titulo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Descrição</ion-label>
+        <ion-input aria-required="" type="text" [(ngModel)]="dados.descricao" id="descricao" name="descricao"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Condição</ion-label>
+        <ion-input aria-required="" type="text" [(ngModel)]="dados.condicao" id="condicao" name="condicao"></ion-input>
+      </ion-item>
+    </ion-list>
+      
+    <ion-button type="submit" expand="full">Enviar</ion-button>
+  </form>
+</ion-content>

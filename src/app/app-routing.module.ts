@@ -20,8 +20,11 @@ const routes: Routes = [
   { path: 'pagina-crud', loadChildren: './pagina-crud/pagina-crud.module#PaginaCRUDPageModule' },
   { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },
   { path: 'cadastro', loadChildren: './cadastro/cadastro.module#CadastroPageModule', canActivate: [LoginGuard] },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule', canActivate: [LoginGuard] },  { path: 'conquistas', loadChildren: './conquistas/conquistas.module#ConquistasPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule', canActivate: [LoginGuard] },
+  { path: 'conquistas', loadChildren: './conquistas/conquistas.module#ConquistasPageModule' },
   { path: 'tutorial', loadChildren: './tutorial/tutorial.module#TutorialPageModule' },
+  { path: 'medalha', loadChildren: './pagina-crud/medalha/medalha.module#MedalhaPageModule' },  { path: 'medalha', loadChildren: './pagina-crud/medalha/medalha/medalha.module#MedalhaPageModule' },
+
 
 ];
 

@@ -7,5 +7,6 @@ export interface UsuarioInterface {
     problemas_respondidos: string
     medalhas: string;
     quantidade_problemas_respondidos: number;
+    senha?: string;
 }
 

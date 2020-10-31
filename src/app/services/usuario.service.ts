@@ -50,4 +50,11 @@ export class UsuarioService {
     })
     
   }
+
+  getQuantidadeProblemasRespondidos() {
+    return this.getUsuario(firebase.auth().currentUser.uid).then(snapshot => {
+      return snapshot.quantidade_problemas_respondidos
+    })
+    
+  }
 }

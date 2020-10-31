@@ -8,6 +8,7 @@ export class Medalha {
     imagem: string;
     condicao: boolean;
     medalhaService: MedalhaService;
+    medalha: MedalhaInterface;
 
     constructor(medalha?) {
         if(medalha) {
@@ -16,14 +17,15 @@ export class Medalha {
             this.descricao = medalha.descricao;
             this.imagem = medalha.imagem;
             this.condicao = medalha.condicao;
+            this.medalha = medalha;
         }
 
         this.medalhaService = new MedalhaService();
         
     }
 
-    addMedalha(medalha: MedalhaInterface){
-        this.medalhaService.addMedalha(medalha);
+    addMedalha(){
+        this.medalhaService.addMedalha(this.medalha);
     }
 
     getMedalha(codigo: string){
