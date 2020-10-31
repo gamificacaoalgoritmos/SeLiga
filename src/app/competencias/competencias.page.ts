@@ -27,7 +27,7 @@ export class CompetenciasPage {
       isso.listarModalidades(snapshot);
     });
 
-    // this.verificarCompetenciasConcluidas()
+    // this.verificarModalidadesConcluidas()
     
   }
   
@@ -43,6 +43,21 @@ export class CompetenciasPage {
     }
 
   }
+
+  // verificarModalidadesConcluidas() {
+  //   let usuario =  new Usuario();
+  //   usuario.getProblemasRespondidos().then(problemas => {
+  //     let problemas_respondidos = problemas;
+  //     //elimina espaços vazios
+  //     const index = problemas_respondidos.indexOf((problemas.length-1));
+  //     problemas_respondidos.splice(index, 1);
+
+  //     let modalidade = new Modalidade();
+  //     modalidade.getModalidades().then(modalidades => {
+        
+  //     })
+  //   })
+  // }
 
   // verificarCompetenciasConcluidas() {
   //   this.usuarioService.getProblemasRespondido().then(problemas => {
