@@ -30,5 +30,11 @@ export class CompetenciaService {
     });
 }
   
+getProblemasCompetencia(codigo: string) {
+  return this.getCompetencia(codigo).then(competencia => {
+    let problemas = competencia.problemas.split(", ");
+    return problemas;
+  })
+}
   
 }

@@ -35,4 +35,8 @@ export class Modalidade{
     getModalidades () {
         return this.modalidadeService.getModalidades();
     }
+
+    getCompetenciasModalidade(codigo: string) {
+        return this.modalidadeService.getCompetenciasModalidade(codigo);
+    }
 }

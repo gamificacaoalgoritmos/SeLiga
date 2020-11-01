@@ -47,13 +47,13 @@ export class ListaProblemasPage implements OnInit {
       var problema = new Problema();
       problema.getProblema(codigo_problema).then(function(snapshot) {
         
-        isso.teste(competencia, codigo_problema, snapshot)
+        isso.bloquearProblemas(competencia, codigo_problema, snapshot)
       })
     })
     
   }
 
-  teste(competencia: CompetenciaInterface, codigo, snapshot) {
+  bloquearProblemas(competencia: CompetenciaInterface, codigo, snapshot) {
     
     let problemas = competencia['problemas'].split(", ")
     let isso = this
@@ -104,17 +104,4 @@ export class ListaProblemasPage implements OnInit {
     });
   }
 
-  renderizarProblemas(snapshot) {
-    let isso = this
-    let lista = document.getElementById('lista_problemas')
-    let ion_item = document.createElement("ion-item")
-    ion_item.innerHTML = `<ion-fab-button size="small" [routerLink] ="['/problema', ${isso.modalidade_id}, ${isso.id}, ${snapshot.codigo}]" color="dark">
-    <ion-icon name="play"></ion-icon>
-  </ion-fab-button>
-  <ion-label>
-    ${snapshot.titulo}
-  </ion-label>`
-  //ista.appendChild(ion_item)
-  lista.append(ion_item)
-  }
 }

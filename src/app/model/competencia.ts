@@ -39,4 +39,8 @@ export class Competencia{
      getCompetencias() {
         return this.competenciaService.getCompetencias();
     }
+
+    getProblemasCompetencia(codigo: string) {
+        return this.competenciaService.getProblemasCompetencia(codigo);
+    }
 }

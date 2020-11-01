@@ -19,7 +19,7 @@
 -->
   
   <ion-item *ngFor="let competencia of competencias">
-    <button id="{{competencia.codigo}}" [routerLink]="['/lista-problemas', id, competencia.codigo]">
+    <button disabled="true" id="{{competencia.codigo}}" [routerLink]="['/lista-problemas', id, competencia.codigo]">
       <img src="{{competencia.imagem}}">
     </button>
     </ion-item>
