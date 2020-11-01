@@ -27,8 +27,6 @@ export class CompetenciasPage {
       isso.listarModalidades(snapshot);
     });
 
-    // this.verificarModalidadesConcluidas()
-    
   }
   
   listarModalidades (modalidade: ModalidadeInterface) {
@@ -42,77 +40,53 @@ export class CompetenciasPage {
       })
     }
 
+    isso.verificarCompetenciasConcluidas()
+
   }
 
-  // verificarModalidadesConcluidas() {
-  //   let usuario =  new Usuario();
-  //   usuario.getProblemasRespondidos().then(problemas => {
-  //     let problemas_respondidos = problemas;
-  //     //elimina espaços vazios
-  //     const index = problemas_respondidos.indexOf((problemas.length-1));
-  //     problemas_respondidos.splice(index, 1);
+  verificarCompetenciasConcluidas() {
+    
+    let modalidade = new Modalidade();
+    modalidade.getCompetenciasModalidade(this.id).then(competencias_codigos => {
+      competencias_codigos.forEach((competencia_codigo, index_competencias) => {
 
-  //     let modalidade = new Modalidade();
-  //     modalidade.getModalidades().then(modalidades => {
+        //desbloquear priemira competencia de cada modalidade
+        if(index_competencias == 0) {
+          document.getElementById(competencia_codigo).attributes.removeNamedItem("disabled");
+        }
+
+        let competencia = new Competencia();
         
-  //     })
-  //   })
-  // }
-
-  // verificarCompetenciasConcluidas() {
-  //   this.usuarioService.getProblemasRespondido().then(problemas => {
-  //     let problemas_respondidos = problemas
-  //     const index = problemas_respondidos.indexOf((problemas.length-1))
-  //     problemas_respondidos.splice(index, 1)
-
-  //     let modalidade = new Modalidade();
-  //     modalidade.getModalidade(this.id).then(modalidade => {
-  //       let competencias = modalidade['competencias'].split(', ')
-  //       let comps = {}
-  //       for(let comp in competencias) {
-  //         comps[competencias[comp]] = false
-  //       } //guardar competencias que estao desbloqueadas
-
-  //       for(let item in competencias) {
-  //         let competencia = new Competencia()
-  //         let contador = 0
-  //         let problemas_da_competencia
+        //verifica se o usuario respondeu o ultimo problema da modalidade e libera a proxima
+        competencia.getProblemasCompetencia(competencia_codigo).then(codigos_problemas_competencia => {
+          let quantidade_problemas_competencia_respondidos = 0;
           
+          let quantidade_codigos_problemas_competencia = codigos_problemas_competencia.length;
+          codigos_problemas_competencia.forEach((codigo_problema_competencia, index) => {
 
-  //         competencia.getCompetencia(competencias[item]).then( competencia => {
-  //           problemas_da_competencia = competencia.problemas.split(', ')
-            
-  //           for(let problema in problemas_da_competencia) {
-  //             for(let problema_respondido in problemas_respondidos) {
-  //               if(problemas_da_competencia[problema] == problemas_respondidos[problema_respondido]) {
-  //                 contador++
-  //               }
-  //             }
-  //           }
-            
-  //           if(contador == problemas_da_competencia.length) {
-  //             comps[competencia.codigo] = true
-  //           }
+            let usuario = new Usuario();
+            usuario.getProblemasRespondidos().then(codigos_problemas_respondidos => {
+              
+              codigos_problemas_respondidos.forEach(codigo_problema_respondido => {
+                
+                if(index == codigos_problemas_competencia.length - 1) {
+                  if(codigo_problema_competencia == codigo_problema_respondido) {
+                    document.getElementById(competencias_codigos[index_competencias+1]).attributes.removeNamedItem("disabled")
+                  } 
+                }
+                
+              });
+              
+            });
 
-  //           //
-  //           for(let i = 0; i < competencias.length - 1; i++) {
-  //             if(i != 0) {
+          });
 
-  //               if(comps[competencias[i-1]] == false) {
-  //                 console.log("entrei")
-  //                 let competencia_button = document.getElementById(competencias[i+1])
-  //                 competencia_button.setAttribute('disabled', 'true')
-  //               }
-  //             }
-  //           }
-        
-  //           contador = 0
-  //         })
+        })
+      })
+    })
 
-          
-  //       }
-  //     })
-  //   })
-  // }
+  
+
+  }
 
 }

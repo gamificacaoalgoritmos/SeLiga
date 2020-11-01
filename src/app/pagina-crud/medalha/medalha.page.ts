@@ -25,7 +25,7 @@ export class MedalhaPage implements OnInit {
     alert('adicionado com sucesso')
 
     for(let item in medalha) {
-      if(item[0] != "a" && item[0] != "g" && item[7] != "S") {
+      if(item[0] != "a" && item[0] != "g" && item[0] != "m") {
         dados[item] = ""
       }
     }

@@ -27,7 +27,18 @@ export class ModalidadeService {
   
   getModalidades() {
     return firebase.database().ref('/modalidades/').once('value').then(function(snapshot) {
-      return snapshot.val()
+      var modalidadesArray = Object.keys(snapshot.val()).map(function(index){
+        let modalidades = snapshot.val()[index];
+        return modalidades;
+      });
+      return modalidadesArray;
     });
+  }
+
+  getCompetenciasModalidade(codigo: string) {
+    return this.getModalidade(codigo).then(modalidade => {
+      let competencias = modalidade.competencias.split(", ");
+      return competencias;
+    })
   }
 }

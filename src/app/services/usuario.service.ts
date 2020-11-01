@@ -5,6 +5,8 @@ import { map, switchMap } from 'rxjs/operators'
 import { Observable, Subject } from 'rxjs'
 import * as firebase from 'firebase';
 import { promise } from 'protractor';
+import { Competencia } from '../model/competencia';
+import { Modalidade } from '../model/modalidade';
 
 @Injectable({
   providedIn: 'root'
@@ -46,14 +48,17 @@ export class UsuarioService {
 
   getProblemasRespondido() {
     return this.getUsuario(firebase.auth().currentUser.uid).then(snapshot => {
-      return snapshot.problemas_respondidos.split(', ')
+      let problemas = snapshot.problemas_respondidos.split(', ');
+      const index = problemas.indexOf((problemas.length -1));
+      problemas.splice(index, 1);
+      return problemas;
     })
     
   }
 
   getQuantidadeProblemasRespondidos() {
-    return this.getUsuario(firebase.auth().currentUser.uid).then(snapshot => {
-      return snapshot.quantidade_problemas_respondidos
+    return this.getProblemasRespondido().then(problemas => {
+      return problemas.length;
     })
     
   }

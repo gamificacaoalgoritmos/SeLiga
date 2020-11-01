@@ -1,6 +1,5 @@
 export interface MedalhaInterface {
     codigo: string;
-    nome: string;
     descricao: string;
     imagem: string;
     condicao: boolean;
