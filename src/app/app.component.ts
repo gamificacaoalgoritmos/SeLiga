@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, ToastController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './services/auth.service';
+import { Usuario } from './model/usuario';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -38,7 +40,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastCtrl: ToastController,
   ) {
     this.initializeApp();
   }
@@ -52,5 +55,21 @@ export class AppComponent {
 
   logout () {
     this.authService.logout()
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastCtrl.create({ message, duration: 2000 });
+    toast.present();
+  }
+
+  redefinirSenha () {
+    firebase.auth().onAuthStateChanged(user => {
+      let usuario = new Usuario();
+      usuario.getUsuario(user.uid).then(usuario => {
+        this.authService.resetPasswordEmail(usuario.email);
+        this.presentToast("Um link foi enviado para seu email cadastrado");
+      })
+    });
+
   }
 }
