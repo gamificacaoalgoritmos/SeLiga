@@ -12,6 +12,8 @@ import * as firebase from 'firebase';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+  usuario = {};
+
   public appPages = [
     {
       title: 'Minhas conquistas',
@@ -43,6 +45,13 @@ export class AppComponent {
     private authService: AuthService,
     private toastCtrl: ToastController,
   ) {
+    firebase.auth().onAuthStateChanged(user => {
+      let usuario = new Usuario();
+      usuario.getUsuario(user.uid).then(usuario => {
+        this.usuario = usuario;
+      });
+    });
+    
     this.initializeApp();
   }
 
