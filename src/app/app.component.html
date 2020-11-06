@@ -14,9 +14,10 @@
               <img src="assets/avatar.jpg">
             </ion-thumbnail>
             <ion-label>
-              <h2>Olá, nomeUser!</h2>
-              <h3>Nome completo</h3>
-              <p>Pontuação:</p>
+              <h2>Olá, {{usuario.nick}}!</h2>
+              <h3>{{usuario.nome}}</h3>
+              <p>Pontuação: {{usuario.pontuacao}}</p>
+              <ion-button (click)="redefinirSenha()">Redefinir senha</ion-button>
             </ion-label>
           </ion-item>
 
