@@ -7,6 +7,8 @@ import * as firebase from 'firebase';
 import { promise } from 'protractor';
 import { Competencia } from '../model/competencia';
 import { Modalidade } from '../model/modalidade';
+import { Usuario } from '../model/usuario';
+import { Medalha } from '../model/medalha';
 
 @Injectable({
   providedIn: 'root'
@@ -62,4 +64,22 @@ export class UsuarioService {
     })
     
   }
+
+  somarPontuacao(pontuacao: number) {
+    firebase.auth().onAuthStateChanged(user => {
+      if(user) {
+        let usuario = new Usuario();
+        usuario.getUsuario(user.uid).then(usuario => {
+          let pontuacao_atual = usuario.pontuacao;
+          pontuacao_atual += pontuacao;
+
+          firebase.database().ref('/usuarios/' + user.uid).update({
+            'pontuacao': pontuacao_atual
+          })
+        })
+      }
+    })
+  }
+  
 }
+

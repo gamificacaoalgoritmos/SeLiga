@@ -9,6 +9,9 @@ import { Competencia } from '../model/competencia';
 import { isoStringToDate } from '@angular/common/src/i18n/format_date';
 import { Modalidade } from '../model/modalidade';
 import { UsuarioService } from '../services/usuario.service';
+import { Usuario } from '../model/usuario';
+import { Problema } from '../model/problema';
+import { DISABLED } from '@angular/forms/src/model';
 
 @Component({
   selector: 'app-problema',
@@ -63,13 +66,21 @@ export class ProblemaPage implements OnInit {
               let botoes = document.getElementsByClassName("buttonBorda")
               var botao = <HTMLInputElement>document.getElementById("buttonEliminaIncorreta");
               botao.disabled = true;
+
               for (let item in botoes) {
                 if (botoes[item].id != isso.respostaCorreta && typeof (botoes[item].id) == "string") {
-                  botoes[item].setAttribute('disabled', 'true')
                   //botões errados
-                } else {
+                  let disabled = document.createAttribute('disabled');
+                  disabled.value = "true";
+                  botoes[item].attributes.setNamedItem(disabled)
+                  
+                } else if(botoes[item].id == isso.respostaCorreta && typeof (botoes[item].id) == "string") {
                   //botão certo
-                  botoes[item].setAttribute('disabled', 'true')
+                  let disabled = document.createAttribute('disabled');
+                  disabled.value = "true";
+                  botoes[item].attributes.setNamedItem(disabled);
+                  
+                  botoes[item].setAttribute("color", "warning");
                 }
               }
             }
@@ -105,7 +116,14 @@ export class ProblemaPage implements OnInit {
       //salva problema respondido no usuario
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-          this1.usuarioService.problemaRespondido(user.uid, this1.id)
+          let usuario = new Usuario();
+          usuario.setProblemaRespondido(user.uid, this1.id); 
+
+          let problema = new Problema();
+          problema.getProblema(this1.id).then(problema => {
+            usuario.somarPontuacao(problema.pontuacao);
+          });
+
         }
       });
 
@@ -126,16 +144,24 @@ export class ProblemaPage implements OnInit {
           if (ultimaCompetencia == false) this.alertUltimoProblema()
         }
       }
-      if (ultimo == false) this.alertAcerto()
+      if (ultimo == false) {
+        let problema = new Problema();
+        problema.getProblema(this1.id).then(problema => {
+          this.alertAcerto(problema.pontuacao)
+        });
+        
+      } 
     } else {
       this.alertErro();
     }
   }
+
+
   //Alert de RESPOSTA CORRETA
-  async alertAcerto() {
+  async alertAcerto(pontuacao) {
     const alert = await this.alertController.create({
       header: 'VOCÊ ACERTOU!',
-      message: 'Parabéns, você acertou!',
+      message: 'Parabéns, você recebeu ' + pontuacao + " pontos",
       buttons: [
         {
           text: 'Próximo problema',
