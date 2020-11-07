@@ -47,4 +47,8 @@ export class Usuario{
     setProblemaRespondido(codigo_usuario: string, codigo_problema: string) {
         this.usuarioService.problemaRespondido(codigo_usuario, codigo_problema)
     }
+
+    somarPontuacao(pontuacao: number) {
+        this.usuarioService.somarPontuacao(pontuacao);
+    }
 }

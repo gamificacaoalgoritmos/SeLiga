@@ -9,6 +9,8 @@ import { Competencia } from '../model/competencia';
 import { isoStringToDate } from '@angular/common/src/i18n/format_date';
 import { Modalidade } from '../model/modalidade';
 import { UsuarioService } from '../services/usuario.service';
+import { Usuario } from '../model/usuario';
+import { Problema } from '../model/problema';
 
 @Component({
   selector: 'app-problema',
@@ -105,7 +107,14 @@ export class ProblemaPage implements OnInit {
       //salva problema respondido no usuario
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-          this1.usuarioService.problemaRespondido(user.uid, this1.id)
+          let usuario = new Usuario();
+          usuario.setProblemaRespondido(user.uid, this1.id); 
+
+          let problema = new Problema();
+          problema.getProblema(this1.id).then(problema => {
+            usuario.somarPontuacao(problema.pontuacao);
+          });
+
         }
       });
 
@@ -126,16 +135,24 @@ export class ProblemaPage implements OnInit {
           if (ultimaCompetencia == false) this.alertUltimoProblema()
         }
       }
-      if (ultimo == false) this.alertAcerto()
+      if (ultimo == false) {
+        let problema = new Problema();
+        problema.getProblema(this1.id).then(problema => {
+          this.alertAcerto(problema.pontuacao)
+        });
+        
+      } 
     } else {
       this.alertErro();
     }
   }
+
+
   //Alert de RESPOSTA CORRETA
-  async alertAcerto() {
+  async alertAcerto(pontuacao) {
     const alert = await this.alertController.create({
       header: 'VOCÊ ACERTOU!',
-      message: 'Parabéns, você acertou!',
+      message: 'Parabéns, você recebeu ' + pontuacao + " pontos",
       buttons: [
         {
           text: 'Próximo problema',
