@@ -12,6 +12,7 @@ import { UsuarioService } from '../services/usuario.service';
 import { Usuario } from '../model/usuario';
 import { Problema } from '../model/problema';
 import { DISABLED } from '@angular/forms/src/model';
+import * as confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-problema',
@@ -73,6 +74,7 @@ export class ProblemaPage implements OnInit {
                   let disabled = document.createAttribute('disabled');
                   disabled.value = "true";
                   botoes[item].attributes.setNamedItem(disabled)
+                  botoes[item].setAttribute("color", "danger");
                   
                 } else if(botoes[item].id == isso.respostaCorreta && typeof (botoes[item].id) == "string") {
                   //botão certo
@@ -80,7 +82,7 @@ export class ProblemaPage implements OnInit {
                   disabled.value = "true";
                   botoes[item].attributes.setNamedItem(disabled);
                   
-                  botoes[item].setAttribute("color", "warning");
+                  botoes[item].setAttribute("color", "success");
                 }
               }
             }
@@ -181,6 +183,7 @@ export class ProblemaPage implements OnInit {
         }
       ]
     });
+    this.confete();
     await alert.present();
   }
 
@@ -207,6 +210,7 @@ export class ProblemaPage implements OnInit {
         }
       ]
     });
+    this.confete();
     await alert.present();
   }
 
@@ -241,6 +245,7 @@ export class ProblemaPage implements OnInit {
         }
       }]
     });
+    this.confete();
     await alert.present();
   }
 
@@ -260,6 +265,7 @@ export class ProblemaPage implements OnInit {
 
     var botaoEliminada = <HTMLInputElement>document.getElementById(alternativas[eliminada]);
     botaoEliminada.disabled = true;
+    botaoEliminada.setAttribute("color", "danger");
     this.alertAltRemovida(alternativas[eliminada]);
   }
 
@@ -273,7 +279,19 @@ export class ProblemaPage implements OnInit {
     await alert.present();
   }
 
-
+  //Animação de confetti
+  confete(){
+     confetti.create(undefined, { resize: true, useWorker: false })({
+      shapes: ['circle', 'circle', 'square'],
+      particleCount: 400,
+      spread: 90,
+      gravity: 2,
+      origin: {
+        y: (0),
+        x: (1)
+      }
+    });
+  }
 
   getProblema(codigo: string) {
     let agora = this
