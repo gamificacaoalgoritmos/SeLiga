@@ -36,6 +36,10 @@ export class Usuario{
         return this.usuarioService.getUsuario(codigo);
     }
 
+    getUsuarios(){
+        return this.usuarioService.getUsuarios();
+    }
+
     getProblemasRespondidos() {
         return this.usuarioService.getProblemasRespondido();
     }

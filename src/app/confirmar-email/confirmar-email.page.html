@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Confirme seu E-mail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form (ngSubmit)="verificarEmail(dados)">
+    <ion-item>
+      <ion-label>E-mail</ion-label>
+      <ion-input type="text" [(ngModel)]="dados.email" name="email"></ion-input>
+    </ion-item>
+    <ion-button type="email" expand="full">Enviar</ion-button>
+  </form>
+  
+
+</ion-content>

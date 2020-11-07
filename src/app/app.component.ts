@@ -46,10 +46,12 @@ export class AppComponent {
     private toastCtrl: ToastController,
   ) {
     firebase.auth().onAuthStateChanged(user => {
-      let usuario = new Usuario();
-      usuario.getUsuario(user.uid).then(usuario => {
-        this.usuario = usuario;
-      });
+      if(user) {
+        let usuario = new Usuario();
+        usuario.getUsuario(user.uid).then(usuario => {
+          this.usuario = usuario;
+        });
+      }
     });
     
     this.initializeApp();
