@@ -11,6 +11,7 @@ import { Modalidade } from '../model/modalidade';
 import { UsuarioService } from '../services/usuario.service';
 import { Usuario } from '../model/usuario';
 import { Problema } from '../model/problema';
+import { DISABLED } from '@angular/forms/src/model';
 
 @Component({
   selector: 'app-problema',
@@ -65,13 +66,21 @@ export class ProblemaPage implements OnInit {
               let botoes = document.getElementsByClassName("buttonBorda")
               var botao = <HTMLInputElement>document.getElementById("buttonEliminaIncorreta");
               botao.disabled = true;
+
               for (let item in botoes) {
                 if (botoes[item].id != isso.respostaCorreta && typeof (botoes[item].id) == "string") {
-                  botoes[item].setAttribute('disabled', 'true')
                   //botões errados
-                } else {
+                  let disabled = document.createAttribute('disabled');
+                  disabled.value = "true";
+                  botoes[item].attributes.setNamedItem(disabled)
+                  
+                } else if(botoes[item].id == isso.respostaCorreta && typeof (botoes[item].id) == "string") {
                   //botão certo
-                  botoes[item].setAttribute('disabled', 'true')
+                  let disabled = document.createAttribute('disabled');
+                  disabled.value = "true";
+                  botoes[item].attributes.setNamedItem(disabled);
+                  
+                  botoes[item].setAttribute("color", "warning");
                 }
               }
             }

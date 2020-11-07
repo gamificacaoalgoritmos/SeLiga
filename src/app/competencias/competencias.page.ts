@@ -45,18 +45,15 @@ export class CompetenciasPage {
   }
 
   verificarCompetenciasConcluidas() {
+    window.onload = e => {
+      console.log(e + "vai tomar no cu")
+    }
     
     let modalidade = new Modalidade();
     modalidade.getCompetenciasModalidade(this.id).then(competencias_codigos => {
-      competencias_codigos.forEach((competencia_codigo, index_competencias) => {
-
-        //desbloquear priemira competencia de cada modalidade
-        if(index_competencias == 0) {
-          document.getElementById(competencia_codigo).attributes.removeNamedItem("disabled");
-        }
-
-        let competencia = new Competencia();
+      competencias_codigos.forEach( (competencia_codigo, index_competencias) => {
         
+        let competencia = new Competencia();   
         //verifica se o usuario respondeu o ultimo problema da modalidade e libera a proxima
         competencia.getProblemasCompetencia(competencia_codigo).then(codigos_problemas_competencia => {
           let quantidade_problemas_competencia_respondidos = 0;
@@ -71,7 +68,13 @@ export class CompetenciasPage {
                 
                 if(index == codigos_problemas_competencia.length - 1) {
                   if(codigo_problema_competencia == codigo_problema_respondido) {
-                    document.getElementById(competencias_codigos[index_competencias+1]).attributes.removeNamedItem("disabled")
+                    
+                    document.getElementById(competencias_codigos[0]).removeAttribute("disabled"); //desbloqueia a 1 competencia
+
+                    if(document.getElementById(competencias_codigos[index_competencias+1]).nodeType == 1) {
+                      document.getElementById(competencias_codigos[index_competencias+1]).removeAttribute('disabled')
+                    }
+                    
                   } 
                 }
                 
@@ -81,9 +84,9 @@ export class CompetenciasPage {
 
           });
 
-        })
-      })
-    })
+        });
+      });
+    });
 
   
 
