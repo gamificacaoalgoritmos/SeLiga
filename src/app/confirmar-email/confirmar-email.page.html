@@ -1,18 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Confirme seu E-mail</ion-title>
+  <ion-toolbar class="barraSuperior">
+    <ion-buttons slot="start">
+      <ion-button routerLink = "/login">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Recuperar Senha</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
   <form (ngSubmit)="verificarEmail(dados)">
-    <ion-item>
-      <ion-label>E-mail</ion-label>
-      <ion-input type="text" [(ngModel)]="dados.email" name="email"></ion-input>
+    <ion-list>
+      <ion-item>
+      <ion-input placeholder="E-mail cadastrado" type="text" [(ngModel)]="dados.email" name="email"></ion-input>
     </ion-item>
-    <ion-button type="email" expand="full">Enviar</ion-button>
+    </ion-list>
+    <ion-button type="email" expand="full" class="botãoEntrar">Enviar</ion-button>
   </form>
-  
-
 </ion-content>
