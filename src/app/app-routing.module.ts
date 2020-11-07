@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'conquistas', loadChildren: './conquistas/conquistas.module#ConquistasPageModule' },
   { path: 'tutorial', loadChildren: './tutorial/tutorial.module#TutorialPageModule' },
   { path: 'medalha', loadChildren: './pagina-crud/medalha/medalha.module#MedalhaPageModule' },  { path: 'medalha', loadChildren: './pagina-crud/medalha/medalha/medalha.module#MedalhaPageModule' },
+  { path: 'confirmar-email', loadChildren: './confirmar-email/confirmar-email.module#ConfirmarEmailPageModule' },
 
 
 ];

@@ -27,6 +27,16 @@ export class UsuarioService {
     });
   }
 
+  getUsuarios() {
+    return firebase.database().ref('/usuarios').once('value').then(function(snapshot) {
+      var usuariosArray = Object.keys(snapshot.val()).map(function(index){
+        let usuarios = snapshot.val()[index];
+        return usuarios;
+      });
+      return usuariosArray;
+    });
+  }
+
   problemaRespondido(codigo_usuario: string, codigo_problema: string) {
     let problemas_respondidos 
 

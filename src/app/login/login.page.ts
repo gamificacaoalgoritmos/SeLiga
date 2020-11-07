@@ -23,6 +23,10 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  redefinirSenha() {
+    this.router.navigate(['confirmar-email'])
+  }
+
   async login () {
     await this.presentLoading()
     try {
