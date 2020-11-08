@@ -22,7 +22,11 @@ export class MedalhaService {
 
   getMedalhas() {
     return firebase.database().ref('/medalhas/').once('value').then(function(snapshot) {
-      return snapshot.val()
+      var medalhasArray = Object.keys(snapshot.val()).map(function(index){
+        let medalhas = snapshot.val()[index];
+        return medalhas;
+      });
+      return medalhasArray;
     });
   }
 }

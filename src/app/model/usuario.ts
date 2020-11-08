@@ -48,6 +48,14 @@ export class Usuario{
         return this.usuarioService.getQuantidadeProblemasRespondidos()
     }
 
+    getMedalhasUsuario(codigo_usuario) {
+        return this.usuarioService.getMedalhasUsuario(codigo_usuario);
+    }
+
+    getQuantidadeMedalhasUsuario(codigo_usuario) {
+        return this.usuarioService.getQuantidadeMedalhasUsuario(codigo_usuario);
+    }
+
     setProblemaRespondido(codigo_usuario: string, codigo_problema: string) {
         this.usuarioService.problemaRespondido(codigo_usuario, codigo_problema)
     }

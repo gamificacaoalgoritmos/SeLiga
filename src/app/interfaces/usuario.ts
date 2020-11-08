@@ -6,6 +6,7 @@ export interface UsuarioInterface {
     pontuacao: number,
     problemas_respondidos: string
     medalhas: string;
+    quantidade_medalhas: number,
     quantidade_problemas_respondidos: number;
     senha?: string;
 }

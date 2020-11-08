@@ -27,10 +27,10 @@ export class Medalha {
     }
 
     getMedalha(codigo: string){
-        return this.getMedalha(codigo);
+        return this.medalhaService.getMedalha(codigo);
     }
 
     getMedalhas(){
-        return this.getMedalhas();
+        return this.medalhaService.getMedalhas();
     }
 }

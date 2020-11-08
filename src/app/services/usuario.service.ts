@@ -37,6 +37,18 @@ export class UsuarioService {
     });
   }
 
+  getMedalhasUsuario(codigo_usuario) {
+    return this.getUsuario(codigo_usuario).then(usuario => {
+      return usuario.medalhas;
+    });
+  }
+
+  getQuantidadeMedalhasUsuario(codigo_usuario) {
+    return this.getUsuario(codigo_usuario).then(usuario => {
+      return usuario.quantidade_medalhas;
+    });
+  }
+
   problemaRespondido(codigo_usuario: string, codigo_problema: string) {
     let problemas_respondidos 
 
