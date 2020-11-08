@@ -18,7 +18,9 @@
         <ion-item>
             <ion-input placeholder="Senha" type="password" [(ngModel)]="usuario.senha"></ion-input>
           </ion-item>
-          <ion-button (click)="redefinirSenha()">Esqueci minha senha</ion-button>
+          <div style="text-align: right; margin: 10px">
+          <a href='/confirmar-email'>Esqueci minha senha</a>
+        </div>
     </ion-list>
         <ion-button class = "botãoEntrar" expand="block" (click)="login()">Entrar</ion-button>
     <br>
