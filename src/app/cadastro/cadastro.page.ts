@@ -39,7 +39,8 @@ export class CadastroPage implements OnInit {
         pontuacao: 0,
         problemas_respondidos: "",
         quantidade_problemas_respondidos: 0,
-        medalhas: ""
+        medalhas: "",
+        quantidade_medalhas: 0
       }
       this.usuarioService.addUsuario(usuario)
     } catch (error) {

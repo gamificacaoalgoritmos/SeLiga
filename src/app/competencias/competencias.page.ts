@@ -56,6 +56,9 @@ export class CompetenciasPage {
         let competencia = new Competencia();   
         //verifica se o usuario respondeu o ultimo problema da modalidade e libera a proxima
         competencia.getProblemasCompetencia(competencia_codigo).then(codigos_problemas_competencia => {
+          
+          document.getElementById(competencias_codigos[0]).removeAttribute("disabled"); //desbloqueia a 1 competencia
+          
           let quantidade_problemas_competencia_respondidos = 0;
           
           let quantidade_codigos_problemas_competencia = codigos_problemas_competencia.length;
@@ -68,8 +71,6 @@ export class CompetenciasPage {
                 
                 if(index == codigos_problemas_competencia.length - 1) {
                   if(codigo_problema_competencia == codigo_problema_respondido) {
-                    
-                    document.getElementById(competencias_codigos[0]).removeAttribute("disabled"); //desbloqueia a 1 competencia
 
                     if(document.getElementById(competencias_codigos[index_competencias+1]).nodeType == 1) {
                       document.getElementById(competencias_codigos[index_competencias+1]).removeAttribute('disabled')

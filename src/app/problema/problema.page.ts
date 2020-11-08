@@ -13,6 +13,7 @@ import { Usuario } from '../model/usuario';
 import { Problema } from '../model/problema';
 import { DISABLED } from '@angular/forms/src/model';
 import * as confetti from 'canvas-confetti';
+import { Medalha } from '../model/medalha';
 
 @Component({
   selector: 'app-problema',
@@ -113,6 +114,7 @@ export class ProblemaPage implements OnInit {
   //Corrige resposta, recebendo como parâmetro uma string correspondente à alternativa selecionada no HTML
   corrigeResposta(identificador) {
     let this1 = this
+    this1.verificarMedalha();
 
     if (identificador == this.respostaCorreta) {
       //salva problema respondido no usuario
@@ -125,6 +127,8 @@ export class ProblemaPage implements OnInit {
           problema.getProblema(this1.id).then(problema => {
             usuario.somarPontuacao(problema.pontuacao);
           });
+
+          this1.verificarMedalha();
 
         }
       });
@@ -156,6 +160,23 @@ export class ProblemaPage implements OnInit {
     } else {
       this.alertErro();
     }
+  }
+
+  verificarMedalha() {
+    let medalha = new Medalha();
+    medalha.getMedalhas().then(medalhas => {
+      let usuario = new Usuario();
+      usuario.getUsuario(firebase.auth().currentUser.uid).then(usuario => {
+        let pontuacao = usuario.pontuacao;
+        let quantidade_problemas_respondidos = usuario.quantidade_problemas_respondidos;
+
+        medalhas.forEach(medalha => {
+          if(medalha.condicao) {
+            console.log("desbloqueada: " + medalha.titulo);
+          }
+        });
+      });
+    });
   }
 
 
