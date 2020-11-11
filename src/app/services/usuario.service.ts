@@ -49,6 +49,24 @@ export class UsuarioService {
     });
   }
 
+  addMedalhaUsuario(codigo_usuario, codigo_medalha) {
+    let medalhas;
+    let quantidade_medalhas = 0;
+
+    let usuario = new Usuario();
+    return usuario.getUsuario(codigo_usuario).then(usuario => {
+      medalhas = usuario.medalhas;
+      medalhas += codigo_medalha + ", ";
+      quantidade_medalhas = usuario.quantidade_medalhas;
+      quantidade_medalhas++;
+
+      return firebase.database().ref("/usuarios/" + codigo_usuario).update({
+        "medalhas": medalhas,
+        "quantidade_medalhas": quantidade_medalhas
+      });
+    });
+  }
+
   problemaRespondido(codigo_usuario: string, codigo_problema: string) {
     let problemas_respondidos 
 
