@@ -72,9 +72,9 @@ export class CompetenciasPage {
                 if(index == codigos_problemas_competencia.length - 1) {
                   if(codigo_problema_competencia == codigo_problema_respondido) {
 
-                    if(document.getElementById(competencias_codigos[index_competencias+1]).nodeType == 1) {
+             
                       document.getElementById(competencias_codigos[index_competencias+1]).removeAttribute('disabled')
-                    }
+                    
                     
                   } 
                 }

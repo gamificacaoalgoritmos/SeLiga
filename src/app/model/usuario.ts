@@ -32,6 +32,10 @@ export class Usuario{
         this.usuarioService.addUsuario(usuario);
     }
 
+    addMedalhaUsuario(codigo_usuario, codigo_medalha) {
+        return this.usuarioService.addMedalhaUsuario(codigo_usuario, codigo_medalha)
+    }
+
     getUsuario(codigo: string){
         return this.usuarioService.getUsuario(codigo);
     }

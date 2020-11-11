@@ -114,11 +114,10 @@ export class ProblemaPage implements OnInit {
   //Corrige resposta, recebendo como parâmetro uma string correspondente à alternativa selecionada no HTML
   corrigeResposta(identificador) {
     let this1 = this
-    this1.verificarMedalha();
 
     if (identificador == this.respostaCorreta) {
       //salva problema respondido no usuario
-      firebase.auth().onAuthStateChanged(function (user) {
+      firebase.auth().onAuthStateChanged(async function (user) {
         if (user) {
           let usuario = new Usuario();
           usuario.setProblemaRespondido(user.uid, this1.id); 
@@ -162,23 +161,77 @@ export class ProblemaPage implements OnInit {
     }
   }
 
-  verificarMedalha() {
-    let medalha = new Medalha();
-    medalha.getMedalhas().then(medalhas => {
-      let usuario = new Usuario();
-      usuario.getUsuario(firebase.auth().currentUser.uid).then(usuario => {
-        let pontuacao = usuario.pontuacao;
-        let quantidade_problemas_respondidos = usuario.quantidade_problemas_respondidos;
+   verificarMdedalha() {
+    let array = [0, 1, 2, 3, 4, 5];
+    
+    let usuario = new Usuario();
+     firebase.auth().onAuthStateChanged(async user => {
+      for(let i = 0; i < 5; i++) {
+       await usuario.addMedalhaUsuario(user.uid, i).then(() => {
+        
+       });
+      }
+    });
+  }
 
-        medalhas.forEach(medalha => {
-          if(medalha.condicao) {
-            console.log("desbloqueada: " + medalha.titulo);
+  verificarMedalha() {
+    let this1 = this;
+    let medalha = new Medalha();
+    medalha.getMedalhas().then( medalhas => {
+      let usuario = new Usuario();
+
+        medalhas.forEach( (medalha) => {
+         usuario.getUsuario(firebase.auth().currentUser.uid).then(async (user) => {
+          let pontuacao = user.pontuacao;
+          let quantidade_problemas_respondidos = user.quantidade_problemas_respondidos;
+          let medalhas_usuario = user.medalhas.split(", ");
+          let medalha_existe = false;
+
+          await medalhas_usuario.forEach(medalha_usuario => {
+            if (medalha.codigo == medalha_usuario) {
+              medalha_existe = true;
+            }
+          });
+
+          if (!medalha_existe) {
+
+            if (medalha.isPontuacao == true) {
+
+              if (pontuacao >= medalha.condicao) {
+                this1.alertMedalha(medalha);
+                console.log(`p ${pontuacao} e m ${medalha.condicao}`);
+                await usuario.addMedalhaUsuario(user.codigo, medalha.codigo).then(d => {
+                  console.log(d)
+                });
+              }
+
+            } else {
+
+              if (quantidade_problemas_respondidos >= medalha.condicao) {
+                this1.alertMedalha(medalha);
+                console.log(`q ${quantidade_problemas_respondidos} e m ${medalha.condicao}`);
+                await usuario.addMedalhaUsuario(user.codigo, medalha.codigo).then(d => {
+                  console.log(d);
+                });
+              }
+            }
+
           }
         });
+
       });
     });
   }
 
+  
+  async alertMedalha(medalha) {
+    const alert = await this.alertController.create({
+      header:"Parabéns! Você desbloqueou uma nova medalha!",
+      message: `<img style="height: 30px;" src="${medalha.imagem}" alt="imagem da medalha" style="border-radius: 2px"><br/>${medalha.descricao}`,
+      buttons: ["OK"]
+    });
+    await alert.present();
+  }
 
   //Alert de RESPOSTA CORRETA
   async alertAcerto(pontuacao) {
