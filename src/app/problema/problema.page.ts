@@ -125,9 +125,8 @@ export class ProblemaPage implements OnInit {
           let problema = new Problema();
           problema.getProblema(this1.id).then(problema => {
             usuario.somarPontuacao(problema.pontuacao);
+            this1.verificarMedalha();
           });
-
-          this1.verificarMedalha();
 
         }
       });
@@ -315,7 +314,9 @@ export class ProblemaPage implements OnInit {
         text: 'Voltar para Modalidades',
         role: 'next',
         handler: () => {
-          this.router.navigate(['/modalidades'])
+          this.router.navigate(['/modalidades']).then(param => {
+            window.location.reload();
+          });
         }
       }]
     });
