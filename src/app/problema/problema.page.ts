@@ -256,7 +256,28 @@ export class ProblemaPage implements OnInit {
         }
       ]
     });
-    this.confete();
+   
+    //Desativa botões de alternativas
+    let botoes = document.getElementsByClassName("buttonBorda")
+    for (let item in botoes) {
+      if (botoes[item].id != this.respostaCorreta && typeof (botoes[item].id) == "string") {
+        //botões errados
+        let disabled = document.createAttribute('disabled');
+        disabled.value = "true";
+        botoes[item].attributes.setNamedItem(disabled)
+        botoes[item].setAttribute("color", "danger");
+        
+      } else if(botoes[item].id == this.respostaCorreta && typeof (botoes[item].id) == "string") {
+        //botão certo
+        let disabled = document.createAttribute('disabled');
+        disabled.value = "true";
+        botoes[item].attributes.setNamedItem(disabled);
+        
+        botoes[item].setAttribute("color", "success");
+      }
+    }
+    
+    this.confete(); //Solta confete
     await alert.present();
   }
 
