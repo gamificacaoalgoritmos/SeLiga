@@ -123,11 +123,10 @@ export class ProblemaPage implements OnInit {
           usuario.setProblemaRespondido(user.uid, this1.id); 
 
           let problema = new Problema();
-          problema.getProblema(this1.id).then(problema => {
-            usuario.somarPontuacao(problema.pontuacao);
+          problema.getProblema(this1.id).then(async problema => {
+            await usuario.somarPontuacao(problema.pontuacao);
+            this1.verificarMedalha();
           });
-
-          this1.verificarMedalha();
 
         }
       });
@@ -161,19 +160,6 @@ export class ProblemaPage implements OnInit {
     }
   }
 
-   verificarMdedalha() {
-    let array = [0, 1, 2, 3, 4, 5];
-    
-    let usuario = new Usuario();
-     firebase.auth().onAuthStateChanged(async user => {
-      for(let i = 0; i < 5; i++) {
-       await usuario.addMedalhaUsuario(user.uid, i).then(() => {
-        
-       });
-      }
-    });
-  }
-
   verificarMedalha() {
     let this1 = this;
     let medalha = new Medalha();
@@ -199,20 +185,14 @@ export class ProblemaPage implements OnInit {
 
               if (pontuacao >= medalha.condicao) {
                 this1.alertMedalha(medalha);
-                console.log(`p ${pontuacao} e m ${medalha.condicao}`);
-                await usuario.addMedalhaUsuario(user.codigo, medalha.codigo).then(d => {
-                  console.log(d)
-                });
+                await usuario.addMedalhaUsuario(user.codigo, medalha.codigo);
               }
 
             } else {
 
               if (quantidade_problemas_respondidos >= medalha.condicao) {
                 this1.alertMedalha(medalha);
-                console.log(`q ${quantidade_problemas_respondidos} e m ${medalha.condicao}`);
-                await usuario.addMedalhaUsuario(user.codigo, medalha.codigo).then(d => {
-                  console.log(d);
-                });
+                await usuario.addMedalhaUsuario(user.codigo, medalha.codigo);
               }
             }
 
@@ -336,7 +316,9 @@ export class ProblemaPage implements OnInit {
         text: 'Voltar para Modalidades',
         role: 'next',
         handler: () => {
-          this.router.navigate(['/modalidades'])
+          this.router.navigate(['/modalidades']).then(param => {
+            window.location.reload();
+          });
         }
       }]
     });
