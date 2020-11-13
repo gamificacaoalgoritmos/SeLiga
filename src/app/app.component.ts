@@ -16,14 +16,14 @@ export class AppComponent {
 
   public appPages = [
     {
+      title: 'Início',
+      url: '/home',
+      icon: 'home'
+    },
+    {
       title: 'Minhas conquistas',
       url: '/conquistas',
       icon: 'trophy'
-    },
-    {
-      title: 'Jogar',
-      url: '/home',
-      icon: 'home'
     },
     {
       title: 'Como jogar?',

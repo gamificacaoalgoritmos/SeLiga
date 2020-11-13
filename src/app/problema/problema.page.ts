@@ -184,14 +184,14 @@ export class ProblemaPage implements OnInit {
             if (medalha.isPontuacao == true) {
 
               if (pontuacao >= medalha.condicao) {
-                this1.alertMedalha(medalha);
+                this1.alertMedalhaPontuacao(medalha);
                 await usuario.addMedalhaUsuario(user.codigo, medalha.codigo);
               }
 
             } else {
 
               if (quantidade_problemas_respondidos >= medalha.condicao) {
-                this1.alertMedalha(medalha);
+                this1.alertMedalhaQtdProblemas(medalha);
                 await usuario.addMedalhaUsuario(user.codigo, medalha.codigo);
               }
             }
@@ -204,20 +204,51 @@ export class ProblemaPage implements OnInit {
   }
 
   
-  async alertMedalha(medalha) {
+  //Alert para medalhas de pontuação
+  async alertMedalhaPontuacao(medalha) {
     const alert = await this.alertController.create({
-      header:"Parabéns! Você desbloqueou uma nova medalha!",
-      message: `<img style="height: 30px;" src="${medalha.imagem}" alt="imagem da medalha" style="border-radius: 2px"><br/>${medalha.descricao}`,
+      header:`Você desbloqueou uma nova medalha!`,
+      message: `
+      <div class="medalhaAlertCorpo">
+          <div> Você alcançou ${medalha.condicao} pontos! Vamos comemorar!</div>
+          <br>
+          <img class="medalhaAlertImagem" src="${medalha.imagem}" alt="imagem da medalha" style="border-radius: 2px">
+          <br>
+          <div class= "medalhaAlertTitulo"> ${medalha.titulo} </div>
+          <div class="medalhaAlertDescricao"> ${medalha.descricao} </div>
+          <br/>
+      </div>
+        `,
       buttons: ["OK"]
     });
     await alert.present();
   }
 
+//Alert para medalhas de quantidade de problemas respondidos
+async alertMedalhaQtdProblemas(medalha) {
+  const alert = await this.alertController.create({
+    header:`Você desbloqueou uma nova medalha!`,
+    message: `
+    <div class="medalhaAlertCorpo">
+        <div> Você já respondeu ${medalha.condicao} problema(s)! Vamos comemorar!</div>
+        <br>
+        <img class="medalhaAlertImagem" src="${medalha.imagem}" alt="imagem da medalha" style="border-radius: 2px">
+        <br>
+        <div class= "medalhaAlertTitulo"> ${medalha.titulo} </div>
+        <div class="medalhaAlertDescricao"> ${medalha.descricao} </div>
+        <br/>
+    </div>
+      `,
+    buttons: ["OK"]
+  });
+  await alert.present();
+}
+
   //Alert de RESPOSTA CORRETA
   async alertAcerto(pontuacao) {
     const alert = await this.alertController.create({
       header: 'VOCÊ ACERTOU!',
-      message: 'Parabéns, você recebeu ' + pontuacao + " pontos",
+      message: 'Parabéns, você recebeu ' + pontuacao + " pontos!",
       buttons: [
         {
           text: 'Próximo problema',
@@ -265,7 +296,7 @@ export class ProblemaPage implements OnInit {
   async alertUltimoProblema() {
     const alert = await this.alertController.create({
       header: 'Parabéns!',
-      message: 'Você concluiu a Competência ' + this.competencia.nome,
+      message: 'Você concluiu a Competência ' + this.competencia.nome +"!",
       buttons: [
         {
           text: 'Próxima Competência',
@@ -311,7 +342,7 @@ export class ProblemaPage implements OnInit {
   async alertUltimaCompetencia() {
     const alert = await this.alertController.create({
       header: 'Parabéns!',
-      message: 'Você concluiu a ' + this.modalidade.nome,
+      message: 'Você concluiu a ' + this.modalidade.nome +"!",
       buttons: [{
         text: 'Voltar para Modalidades',
         role: 'next',
