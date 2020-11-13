@@ -9,7 +9,7 @@
 
 <ion-content>
 
-  <ion-item>
+  <!-- <ion-item>
     <ion-thumbnail slot="start">
       <img src="/assets/conquistas/pontuacao/MDL017.png">
     </ion-thumbnail>
@@ -18,9 +18,22 @@
       <h3 class="descricao">Descrição da medalha</h3>
       <p class="codigo">Código</p>
     </ion-label>
+  </ion-item> -->
+
+  <ion-item *ngFor="let medalha of medalhas">
+    <ion-thumbnail slot="start">
+      <img src="{{medalha.imagem}}">
+    </ion-thumbnail>
+    <ion-label>
+      <h2>{{medalha.titulo}}</h2>
+      <h3 class="descricao">{{medalha.descricao}}}</h3>
+      <p class="codigo">{{medalha.codigo}}}</p>
+    </ion-label>
   </ion-item>
 
-  <ion-item>
+  
+
+  <!-- <ion-item>
     <ion-thumbnail slot="start">
       <img src="/assets/conquistas/pontuacao/MDL013.png">
     </ion-thumbnail>
@@ -40,6 +53,6 @@
       <h3 class="descricao"> O poder surge em resposta a uma necessidade.</h3>
       <p class="codigo">MDL019</p>
     </ion-label>
-  </ion-item>
+  </ion-item> -->
 
 </ion-content>
