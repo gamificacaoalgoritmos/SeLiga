@@ -8,8 +8,13 @@
   </ion-header>
 
 <ion-content>
-     <span *ngFor="let modalidade of modalidades">
-         <ion-img  *ngIf="modalidade.codigo != 'M003'" src="{{modalidade.imagem}}" [routerLink]="['/competencias', modalidade.codigo]"></ion-img>
-         <ion-img  *ngIf="modalidade.codigo == 'M003'"  (click)="emBreve()" src="{{modalidade.imagem}}"></ion-img>
+  
+     <span *ngFor="let modalidade of modalidades"> 
+      <ion-img id="{{modalidade.codigo}}" *ngIf="modalidade.codigo != 'M003' && modalidade.disabled == false" [routerLink]="['/competencias', modalidade.codigo]" src="{{modalidade.imagem}}" ></ion-img>
+      
+      <ion-img id="{{modalidade.codigo}}" *ngIf="modalidade.codigo != 'M003' && modalidade.disabled == true" src="{{modalidade.imagem}}" ></ion-img>
+      
+      <ion-img id="{{modalidade.codigo}}" *ngIf="modalidade.codigo == 'M003'" (click)="emBreve()" src="{{modalidade.imagem}}"></ion-img> 
      </span>
+
 </ion-content>
