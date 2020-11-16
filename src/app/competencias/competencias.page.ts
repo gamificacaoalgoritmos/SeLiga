@@ -45,9 +45,6 @@ export class CompetenciasPage {
   }
 
   verificarCompetenciasConcluidas() {
-    window.onload = e => {
-      console.log(e + "vai tomar no cu")
-    }
     
     let modalidade = new Modalidade();
     modalidade.getCompetenciasModalidade(this.id).then(competencias_codigos => {
