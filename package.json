@@ -2,17 +2,21 @@
   "name": "seliga",
   "version": "0.0.1",
   "author": "Se Liga Aê! ©",
-  "homepage": "https://ionicframework.com/",
+  "homepage": "https://seligaaeifpe.wixsite.com/seligaae-ifpe2018",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js", 
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --prod" 
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "~7.3.8",
+    "@angular/compiler-cli": "~7.2.2",
+    "typescript": "~3.1.6",
     "@angular/common": "^7.2.2",
     "@angular/core": "^7.2.2",
     "@angular/fire": "^5.2.1",
@@ -65,6 +69,10 @@
     "ts-node": "~8.3.0",
     "tslint": "~5.17.0",
     "typescript": "~3.1.6"
+  },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.9.0"
   },
   "description": "An Ionic project",
   "cordova": {
