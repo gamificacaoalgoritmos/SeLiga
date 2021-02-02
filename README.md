@@ -5,6 +5,9 @@
 ## O que é?
 É uma plataforma mobile gamificada, em formato de quiz. O aplicativo é destinado a todos que buscam aprender ou aperfeiçoar seus conhecimentos em programação.
 
+## Público alvo
+O aplicativo é destinado a todos que buscam aprender ou aperfeiçoar seus conhecimentos em programação. Nesse âmbito, o aplicativo pode ser utilizado tanto por estudantes independentes quanto por professores em sala aula com sua turma.
+
 ## Motivação
 Em um mundo cada vez mais virtualizado e intermediado por programas de computadores, tende a ser crescente a demanda por programadores ou por profissionais que tenham, no mínimo, noções básicas em programação. Por outro lado, também torna-se evidente o aumento da necessidade do desenvolvimento de algoritmos personalizados com alta especificidade para o uso individual e cotidiano (como ocorre atualmente em aplicativos como “Automate” e “Macroid”, para Android, “IFTTT”, para Android e iOS, e o aplicativo nativo “Atalhos”, exclusivo no iOS). Entretanto, a realidade observada é a de escassez cada vez mais crescente desta competência diferencial. Assim como explica [Piva Jr. & Freitas (2010)](https://www.br-ie.org/pub/index.php/sbie/article/view/1464), as possíveis explicações deste processo estão nas próprias instituições de ensino.
 
@@ -27,13 +30,35 @@ Dessa forma, a aplicação busca difundir o ensino da programação de forma din
 ## Inovação
 Tomadas as bases teóricas importantes da área de pedagogia, computação e design, construiu-se uma plataforma completa que busca acompanhar o usuário durante todo desenvolvimento dos conhecimentos que orientam o estudo de programação a partir de processo didático adaptado, inovador e estimulante. Assim, a plataforma trabalha por meio de um caminho —  sistemático e hierárquico de ações, pensamentos e decisões —  que utiliza-se de estratégias capazes de promover a interação com o estudante através de sistemas de pontuação e implementação de conceitos como ludicidade e gamificação.  
 
-## Público alvo
-O aplicativo é destinado a todos que buscam aprender ou aperfeiçoar seus conhecimentos em programação. Nesse âmbito, o aplicativo pode ser utilizado tanto por estudantes independentes quanto por professores em sala aula com sua turma.
-
 ## Ferramentas utilizadas
 * Framework Ionic
 * Firebase
+* Visual Studio Code
 * Metodologia SCRUM (sprints quinzenais e reuniões semanais)
+
+## Inicializando o projeto (localhost)
+### Pré requisitos
+* Node
+* Ionic
+* Git
+* Navegador Web
+* Editor de Código (opcional)
+### Instalação
+#### 1. Clonar o repositório na máquina
+No CMD/Terminal, use:
+```
+git clone https://github.com/gamificacaoalgoritmos/SeLiga
+```
+#### 2. Acessar a pasta do repositório clonado e, dentro dela, instalar as bibliotecas necessárias
+No CMD/Terminal, use:
+```
+npm install
+```
+#### 3. Acessar a pasta do repositório clonado e inicializar o servidor
+No CMD/Terminal, use:
+```
+ionic serve
+```
 
 ## Contribuidores
 - [@AlephyV](https://github.com/AlephyV) como Alephy Vinícius Rossi Cardoso da Silva (Desenvolvedor)
@@ -43,3 +68,6 @@ O aplicativo é destinado a todos que buscam aprender ou aperfeiçoar seus conhe
 - Eduardo Garcia Wanderley (Orientador)
 - Leonardo Soares e Silva (Professor Colaborador)
 - Renata Garcia Wanderley (Professora Colaboradora)
+
+## Agradecimentos especiais
+[Instituto Federal de Educação, Ciência e Tecnologia de Pernambuco - Campus Garanhuns](https://portal.ifpe.edu.br/campus/garanhuns), João Paulo dos Santos Oliveira (docente), David Alain do Nascimento (docente), Alessandra Maranhão Soares Sivini Siqueira (docente), Eric de Luna Sales (docente), Eugênio de Carvalho Saraiva (docente), Eduardo De Melo Vasconcelos (docente), Ewerton Menezes de Mendonça (docente), Filippo César Guedes Régis (docente), João Paulo Gomes de Vasconcelos Aragão (docente), Elmano Ramalho Cavalcanti (docente), Fabrício Barros Cabral (docente), Marcelo Silva Santos (docente), Tiago Lima (docente), Carlos Magno Silva de Menezes (docente), Vilmar Santos Nepomuceno (docente), Cosmo Mariano da Silva Junior (docente), Margarete Maria da Silva (pedagoga), Yasmim Adrieny da Silva Sales (estudante), Eduarda Ciriaco Manenti (estudante), Carlos Sabino de França Neto (estudante), João Vinícius Faustino Revoredo (estudante), Letícia Barbosa (estudante) e demais profissionais, docentes e estudantes envolvidos, de forma direta ou indireta, na formulação e produção da plataforma "Se Liga!".
