@@ -3,3 +3,26 @@
     --background:#fdad1a;
 } 
   
+/*Configurações de background*/
+ion-content{
+    --ion-background-color: #ffefad;
+  }
+  
+  /*Configurações dos slides de apresentação inicial*/
+  ion-slides {
+    height: 83vh;
+    background-color:#ffefad;
+  }
+  
+  /*Configurações de paginação dos slides de apresentação*/
+  :host ::ng-deep .swiper-pagination{
+    position: fixed;
+    bottom: 0px;
+    padding-bottom: 3px;
+    .swiper-pagination-bullet {
+        --bullet-background: #c76e36;
+    }
+    .swiper-pagination-bullet-active {
+      --bullet-background:transparent;
+    } 
+  }
