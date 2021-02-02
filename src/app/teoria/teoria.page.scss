@@ -3,9 +3,11 @@
     --background:#ff6d05;
 }
 
-/*Configurações de paginação dos slides de apresentação*/
-:host ::ng-deep .swiper-pagination{
-    bottom: 5%;
+   /*Configurações de paginação dos slides de apresentação*/
+   :host ::ng-deep .swiper-pagination{
+    position: fixed;
+    bottom: 0px;
+    padding-bottom: 3px;
     .swiper-pagination-bullet {
         --bullet-background: #c76e36;
     }
