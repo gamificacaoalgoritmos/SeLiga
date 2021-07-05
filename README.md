@@ -64,7 +64,7 @@ ionic serve
 - [@AlephyV](https://github.com/AlephyV) como Alephy Vinícius Rossi Cardoso da Silva (Desenvolvedor)
 - [@marcosgrm](https://github.com/marcosgrm) como Marcos Gabriel Rodrigues Melo (Desenvolvedor)
 - [@ClaraLarissa](https://github.com/ClaraLarissa) como Clara Larissa Duarte Trajano Dias (Desenvolvedora)
-- [@filipepaulino](https://github.com/filipepaulinoa) como Felipe Paulino Barbosa (Testador)
+- [@filipepaulino](https://github.com/filipepaulino) como Felipe Paulino Barbosa (Testador)
 - Eduardo Garcia Wanderley (Orientador)
 - Leonardo Soares e Silva (Professor Colaborador)
 - Renata Garcia Wanderley (Professora Colaboradora)
